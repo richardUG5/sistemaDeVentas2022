@@ -7,7 +7,7 @@
   </main>
 
 <?php
-// llevar a un helper, recomendable por el ing.
+// llevar a un helper recomendable por el ing.
   switch ($msg) 
   {
     case '1':
@@ -21,7 +21,7 @@
       break;
 
     default:
-      $mensaje="Saliendo.....";
+      $mensaje="Saliendo......";
       break;
   }
 ?>

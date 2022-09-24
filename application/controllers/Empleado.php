@@ -1,6 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// importamos libreria-------------------------
+require FCPATH.'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+// hasta aqui ------------------------------------
+
 class Empleado extends CI_Controller {
 
 	// recuperamos la lista de empleados
@@ -29,6 +36,43 @@ class Empleado extends CI_Controller {
 			redirect('usuarios/panel','refresh'); //redireccionamos 
 		}
 	}
+
+	// creamos metodo listaxlsx para reporte en excel
+public function listaxlsx()
+{
+	$lista=$this->empleado_model->listaempleados();
+	$lista=$lista->result();
+	// creamos cabecera del reporte con sus atributos
+	header('Content-Type: application/vnd.ms-excel');
+	header('Content-Disposition: attachment;filename="ListaDeEmpleados.xlsx"');
+	$spreadsheet = new Spreadsheet();
+	$sheet = $spreadsheet->getActiveSheet();
+
+	$sheet->setCellValue('A1', 'ID');
+	$sheet->setCellValue('B1', 'Nombre');
+	$sheet->setCellValue('C1', 'Apellidos');
+	$sheet->setCellValue('D1', 'Telefono');
+	$sheet->setCellValue('E1', 'Cargo');
+// hasta aqui cabecera
+
+// aqui construimos el contenido para el reporte en excel, es decir CUERPO
+	$sn=2; // aqui se crea indice ejemplo A2, B2, C2 ...... A3, B3, C3 ...... An
+	foreach ($lista as $row) 
+	{
+		$sheet->setCellValue('A'.$sn,$row->idEmpleado);
+		$sheet->setCellValue('B'.$sn,$row->nombre);
+		$sheet->setCellValue('C'.$sn,$row->apellidos);
+		$sheet->setCellValue('D'.$sn,$row->telefono);
+		$sheet->setCellValue('E'.$sn,$row->cargo);
+		$sn++;
+	}
+// resultado a mostrar para descargar
+	$writer = new Xlsx($spreadsheet);
+	$writer->save("php://output");
+}
+
+
+	// hasta aqui
 
 	public function guest()
 	{

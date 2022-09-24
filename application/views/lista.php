@@ -14,14 +14,19 @@
       <?php //echo form_close(); ?>  -->
 <!-- Clase 4-VII-2022 hasta aqui -->
 
-      <!-- BOTON PARA REPORTE -->
+<!-- BOTON PARA REPORTE en EXCEL -->
+    <?php echo form_open_multipart('empleado/listaxlsx'); ?>
+      <button type="submit" name="buton3" class="btn btn-danger" >Lista de empleados XLSX</button>
+    <?php echo form_close(); ?>
 
-      <br>
+<!-- HASTA AQUI REPORTE EN EXCEL -->
+
+
+<!-- BOTON PARA REPORTE -->
+      
       <a target="_blank" href="<?php echo base_url(); ?>index.php/empleado/reportepdf ">
         <button class="btn btn-success btn-block">Lista empleados PDF</button>        
       </a>
-
-
 
       <font color="btn-warning">
         <h1>LISTA DE EMPLEADOS HABILITADOS</h1>
@@ -46,9 +51,6 @@
         <?php echo form_open_multipart('empleado/agregar'); ?>
       <button type="submit" name="agregar" class="btn btn-primary">AGREGAR EMPLEADO</button>
       <?php echo form_close(); ?>
-
-      
-
     
 
       <table class="table">
