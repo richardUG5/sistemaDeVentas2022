@@ -36,12 +36,14 @@ class Producto extends CI_Controller {
 	public function agregarbd()
 	{
 		//-----BDD tabla-------formularioP.php
-		$data['nombre']=strtoupper($_POST['nombre']);
-		$data['descripcion']=strtoupper($_POST['descripcion']);
-		$data['stockMinimo']=$_POST['stockMinimo'];
-		$data['stockMaximo']=$_POST['stockMaximo'];
+		$data['nombre']=strtoupper($_POST['Nombre'], 'UTF-8');
+		$data['descripcion']=strtoupper($_POST['Descripcion'], 'UTF-8');
+		$data['color']=mb_strtoupper($_POST['Color'], 'UTF-8');
+		$data['unidadMedida']=$_POST['UnidadMedida'];
 		$data['precio']=$_POST['Precio'];
 
+		//$data['fechaRegistro']=$_POST['FechaRegistro'];
+		//$data['fechaActualizacion']=$_POST['FechaActualizacion'];
 
 		$lista=$this->producto_model->agregarproducto($data);
 		redirect('producto/index','refresh');
@@ -79,11 +81,13 @@ class Producto extends CI_Controller {
 	{
 		$idproducto=$_POST['idproducto'];
 		//-----BDD tabla-------formulario.php
-		$data['nombre']=$_POST['nombre'];
-		$data['descripcion']=$_POST['descripcion'];
-		$data['stockMinimo']=$_POST['stockMinimo'];
-		$data['stockMaximo']=$_POST['stockMaximo'];
+		$data['nombre']=mb_strtoupper($_POST['Nombre'], 'UTF-8');
+		$data['descripcion']=mb_strtoupper($_POST['Descripcion'], 'UTF-8');
+		$data['color']=mb_strtoupper($_POST['Color'], 'UTF-8');
+		$data['unidadMedida']=$_POST['UnidadMedida'];
 		$data['precio']=$_POST['Precio'];
+		//$data['fechaRegistro']=$_POST['FechaRegistro'];
+		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 
 		$this->producto_model->modificarproducto($idproducto, $data);	
 
@@ -94,7 +98,8 @@ class Producto extends CI_Controller {
 	{
 		$idproducto=$_POST['idproducto'];
 		//-----BDD tabla-------formulario.php
-		$data['habilitado']='0';
+		$data['estado']='0';
+		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
 		$this->producto_model->modificarproducto($idproducto, $data);	
 
@@ -122,7 +127,8 @@ class Producto extends CI_Controller {
 	{
 		$idproducto=$_POST['idproducto'];
 		//-----BDD tabla-------formulario.php
-		$data['habilitado']='1';
+		$data['estado']='1';
+		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
 		$this->producto_model->modificarproducto($idproducto, $data);	
 

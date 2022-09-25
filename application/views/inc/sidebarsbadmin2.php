@@ -6,7 +6,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"> SIST. WEB <sup>5</sup></div>
+                <div class="sidebar-brand-text mx-3"> M E N U <sup>5</sup></div>
             </a>
 
             <!-- Divider -->
@@ -16,63 +16,139 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>PROGRAMACION WEB II</span></a>
-            </li>
-
-
-            <li>
-                <?php echo form_open_multipart('empleado/index'); ?>
-                  <button type="submit" name="buton2" class="btn btn-info">VER EMPLEADOS HABILITADOS</button>
-                  <?php echo form_close(); ?>
+                    <span>SISTEMA WEB VENTAS</span></a>
             </li>
 
             <li>
-                <?php echo form_open_multipart('producto/index'); ?>
-                  <button type="submit" name="buton3" class="btn btn-dark">VER PRODUCTOS HABILITADOS</button>
-                  <?php echo form_close(); ?>
-            </li>
-
-<!---------------------aun sin funcionalidad----------------------------------- -->
-            <li>
-                <?php echo form_open_multipart('empleado/index'); ?>
-                  <button type="submit" name="buton2" class="btn btn-warning">VER CLIENTES HABILITADOS</button>
-                  <?php echo form_close(); ?>
-            </li>
+                <div class="container my-auto">
+                    <?php echo form_open_multipart('empleado/index'); ?>
+                      <button type="submit" name="buton2" class="btn btn-info">GESTION DE EMPLEADO</button>
+                      <?php echo form_close(); ?>
+                </div>
+            </li> <br>
 
             <li>
-                <?php echo form_open_multipart('producto/index'); ?>
-                  <button type="submit" name="buton3" class="btn btn-danger">VER PROVEEDORES HABILITADOS</button>
-                  <?php echo form_close(); ?>
-            </li>
-<!------------------------------------------------------------------------------- -->
+                <div class="container my-auto">
+                    <?php echo form_open_multipart('producto/index'); ?>
+                      <button type="submit" name="buton3" class="btn btn-dark">GESTION DE PRODUCTO</button>
+                      <?php echo form_close(); ?>
+                </div>
+            </li> <br>
 
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- Divider 
+            <hr class="sidebar-divider">  -->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+<!--            <div class="sidebar-heading">
                 Interface
             </div>
+-->
 
-            <!-- Nav Item - Pages Collapse Menu -->
+<!-- ------------------------ para gestion de empleados ---------------------------------------- -->
             <li class="nav-item">
+                
+                  <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo">
+                    <i class="fa fa-users"></i>Gestion Empleados
+                    <span class="fa fa-chevron-down"></span>
+                  </a>
+                  <ul class="nav child_menu">
+                    <li>
+                        <?php echo form_open_multipart('empleado/index');?>
+                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                            Empleados
+                          </button>
+                        <?php echo form_close();?>
+                    </li>
+                    <li>
+                        <?php echo form_open_multipart('sucursal/index');?>
+                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                            Sucursales
+                          </button>
+                        <?php echo form_close();?>
+                    </li>
+                  </ul>                
+            </li>
+
+
+<!-- inicio para productos ------------------------------------------------------------------------->
+<li>
+    <a>
+      <i class="fa fa-cubes"></i>Gestion de Productos
+      <span class="fa fa-chevron-down"></span>
+    </a>
+    <ul class="nav child_menu">
+        <li>
+            <?php echo form_open_multipart('producto/index');?>
+              <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;"> Productos
+              </button>
+            <?php echo form_close();?>
+        </li>
+        <li>
+            <?php echo form_open_multipart('categoria/index');?>
+              <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;"> Categorías
+              </button>
+            <?php echo form_close();?> 
+        </li>
+        <li>
+            <?php echo form_open_multipart('marca/index');?>
+              <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;"> Fabricante
+              </button>
+            <?php echo form_close();?>
+        </li>
+  </ul>
+</li>
+<!-- fin productos ------------------------------------------------------------------------->
+
+<!-- para usuarios ------------------------------------------------------------------------->
+            <li>
+                  <a>
+                    <i class="fa fa-users"></i>Usuarios
+                    <span class="fa fa-chevron-down"></span>
+                  </a>
+                  <ul class="nav child_menu">
+                    <li>
+                        <?php echo form_open_multipart('usuarios/inicio');?>
+                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                            Usuarios
+                          </button>
+                        <?php echo form_close();?>
+                    </li>
+                  </ul>
+                </li>
+
+<!-- inicio para empleados ------------------------------------------------------------------------->
+<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Componentes</span>
+                    <i class="fas fa-fw fa-male"></i>
+                    <span>Empleados</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Componentes Perzonalizados:</h6>
-                        <a class="collapse-item" href="buttons.html">Botones</a>
-                        <a class="collapse-item" href="cards.html">Tarjetas</a>
+
+<?php echo form_open_multipart('empleado/index');?>
+  <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">Empleados </button>
+<?php echo form_close();?>
+
+
+<!--
+                        <h6 class="collapse-header">Ver:</h6>
+                        <?php // echo form_open_multipart('persona/index'); ?>
+                            <button type="submit" class="btn btn-light btn-block btn-sm">Persona</button>
+                        <?php // echo form_close(); ?>
+                        <?php // echo form_open_multipart('profesor/index'); ?>
+                            <button type="submit" class="btn btn-light btn-block btn-sm">Profesores</button>
+                        <?php // echo form_close(); ?>
                     </div>
                 </div>
+-->
             </li>
+<!-- fin empleados ------------------------------------------------------------------------->
+
+
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+<!--            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -88,19 +164,19 @@
                         <a class="collapse-item" href="utilities-other.html">Otro</a>
                     </div>
                 </div>
-            </li>
+            </li> --------------- -->
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- Divider 
+            <hr class="sidebar-divider">   -->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+<!--            <div class="sidebar-heading">
                 Addons
             </div>
-
+-->
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+<!--            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -118,22 +194,23 @@
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
-            </li>
+            </li>  --------------- -->
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+<!--            <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
+-->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+<!--            <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
-
+-->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -144,12 +221,12 @@
             </div>
 
             <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
+<!--            <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="<?php echo base_url(); ?>sbadmin2/img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
-
+-->
         </ul>
         <!-- End of Sidebar -->
 

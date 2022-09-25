@@ -18,14 +18,6 @@ class Usuarios extends CI_Controller {
             $this->load->view('inc/header');
             $this->load->view('login',$data);
             $this->load->view('inc/footer');
-
-            //$this->load->view('inc/headersbadmin2');
-            //$this->load->view('login');
-			//$this->load->view('inc/sidebarsbadmin2');		
-			//$//this->load->view('inc/topbarsbadmin2');
-			//$this->load->view('contenido');		
-			//$this->load->view('inc/creditossbadmin2'); 		
-			//$this->load->view('inc/footersbadmin2');
 		}		
 	}
 	public function validar()
@@ -35,13 +27,13 @@ class Usuarios extends CI_Controller {
 
         $consulta=$this->usuario_model->validar($login,$password);
 
-        if ($consulta->num_rows()>0) 
+        if ($consulta->num_rows()>0) // si la cantidad de filas es mayor a cero
             {
                 // Tenemos una validacion efectiva
                 foreach ($consulta->result() as $row) 
                 {
                     $this->session->set_userdata('idusuario',$row->idUsuario);
-                    $this->session->set_userdata('login',$row->login);
+                    $this->session->set_userdata('login',$row->login); // -----vista login
                     $this->session->set_userdata('tipo',$row->tipo);
                     redirect('usuarios/panel','refresh'); //redireccionamos 
                 }                        
@@ -80,6 +72,8 @@ class Usuarios extends CI_Controller {
                $this->session->sess_destroy(); // destruimos la session              
                redirect('usuarios/index/1','refresh');               
         }
+
+
 
 
 	public function prueba()

@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost:3307',
+	'hostname' => 'localhost:3306',
 	'username' => 'root',
-	'password' => '',
-	'database' => 'bdcomercial',
+	'password' => '12345',
+	'database' => 'bdventascomercial_v1',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

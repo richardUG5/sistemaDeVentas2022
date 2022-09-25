@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','session','pdf'); //--------aumentar pdf---------------
+$autoload['libraries'] = array('database','session'); // pa login(session) y reportes (pdf)
 
 /*
 | -------------------------------------------------------------------

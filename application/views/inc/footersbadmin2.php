@@ -26,21 +26,27 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+
+                <div class="modal-body">Elejir "Cerrar Sesion" esta seguro de cerrar session?.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <?php echo form_open_multipart('usuarios/logout'); ?>
+                        <button type="submit" class="btn btn-danger" name="enviar">Cerrar Session</button>
+
+                    <?php echo form_close(); ?>
+                <!--    <a class="btn btn-primary" href="login.html">Cerrar Sesion</a> -->
                 </div>
             </div>
         </div>
+
+
+
     </div>
 
 
-
-
-
-
     <!-- Bootstrap core JavaScript-->
+
+
     <script src="<?php echo base_url(); ?>sbadmin2/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -56,15 +62,56 @@
     <!-- Page level custom scripts -->
     <script src="<?php echo base_url(); ?>sbadmin2/js/demo/chart-area-demo.js"></script>
     <script src="<?php echo base_url(); ?>sbadmin2/js/demo/chart-pie-demo.js"></script>
+    <script>
+  $(function () {
+   $('#dataTable').DataTable({      
+      "fixedHeader": true,
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": false,
+      "lengthMenu": [
+            [5, 10, 25, 50, -1], // para mostrar filas o registros
+            [5, 10, 25, 50, 'All'], // para mostrar filas o registros
+        ],
+      
+      //traduccion al español dataTable
+      "language":{
+        "lengthMenu": "Mostrar _MENU_ registros",
+        "zeroRecords": "No se encontraron resultados",
+        "info": "Mostrando registros de _START_ al _END_ de un total de _TOTAL_ registros",
+        "infoEmpty": "Mostrando registros de 0 al 0 de un total de 0 registros",
+        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sSearch": "Buscar:",
+        "oPaginate": {
+          "sFirst": "Primero",
+          "sLast": "Último",
+          "sNext": "Siguiente",
+          "sPrevious": "Anterior",
+        },
+        "sProcessing": "Procesando...",
+      }
+    });    
+  });
+</script>
+    <script src="<?php echo base_url(); ?>sbadmin2/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>sbadmin2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="<?php echo base_url(); ?>sbadmin2/js/demo/datatables-demo.js"></script>
+
 
 </body>
 
- <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <font color="orange">
-                            <span>Realizado por: Richard Ugarte Garcia  &copy;Sistema web 2022</span>
-                        </font>
-                    </div>
-                </div>
-            </footer>
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <font color="orange">
+       <span>Realizado por: Richard Ugarte Garcia  &copy; SISTEMA WEB VENTAS 2022</span>
+            </font>
+        </div>
+    </div>
+</footer> 

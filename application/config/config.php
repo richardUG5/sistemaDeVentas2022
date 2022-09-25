@@ -327,7 +327,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/userguide3/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'Decode'; // Decode sirve para cifrar textos contraseña
 
 /*
 |--------------------------------------------------------------------------
@@ -387,7 +387,7 @@ $config['encryption_key'] = '';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_samesite'] = 'Lax';
-$config['sess_expiration'] = 7200;
+$config['sess_expiration'] = 7200; // tiempo de session
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
