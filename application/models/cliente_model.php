@@ -7,45 +7,43 @@ class Cliente_model extends CI_Model {
 	public function listaClientes()
 	{
 		$this->db->select('*'); // select *
-		$this->db->from('clientes'); // tabla
-		// $this->db->where('habilitado','1'); // habilitado=1 ------para auditoria
+		$this->db->from('cliente'); // tabla
+		$this->db->where('estado','1'); // estado=1
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
 
-/*	public function agregarempleado($data)
+	public function agregarcliente($data) 
 	{
-		$this->db->insert('empleados',$data);
+		$this->db->insert('cliente',$data);
 	}
 
-	public function eliminarempleado($idempleado)
+	public function eliminarcliente($idcliente)
 	{
-		$this->db->where('idEmpleado',$idempleado);
-		$this->db->delete('empleados');
+		$this->db->where('idCliente',$idcliente);
+		$this->db->delete('cliente');
 	}
-	public function recuperarempleado($idempleado)
+	public function recuperarcliente($idcliente)
 	{
 		$this->db->select('*'); // select *
-		$this->db->from('empleados'); // tabla
-		$this->db->where('idEmpleado',$idempleado); // hace WHERE idEmpleado=idempleado
-		// dnd (atributo de BdD [idEmpleado=idempleado] esto es variable q recibe)
+		$this->db->from('cliente'); // tabla
+		$this->db->where('idCliente',$idcliente); // hace WHERE idCliente=idcliente
+		// dnd (atributo de BdD [idCliente=idcliente] esto es variable q recibe)
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
 
-	public function modificarempleado($idempleado, $data)
+	public function modificarcliente($idcliente, $data)
 	{
 		
-		$this->db->where('idEmpleado',$idempleado); // hace WHERE idEmpleado=idempleado
-		// dnd (atributo de BdD [idEmpleado=idempleado] esto es variable q recibe)
-		$this->db->update('empleados',$data);		
+		$this->db->where('idCliente',$idcliente); // hace WHERE idCliente=idcliente
+		// dnd (atributo de BdD [idCliente=idcliente] esto es variable q recibe)
+		$this->db->update('cliente',$data);		
 	}
 
-	public function listaempleadosdeshabilitados()
+	public function listaclientesdeshabilitados()
 	{
 		$this->db->select('*'); // select *
-		$this->db->from('empleados'); // tabla
-		$this->db->where('habilitado','0'); // habilitado=0
+		$this->db->from('cliente'); // tabla
+		$this->db->where('estado','0'); // estado=0
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
-
-	*/
 }

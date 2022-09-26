@@ -11,7 +11,7 @@ class Producto extends CI_Controller {
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listaP',$data);		
+		$this->load->view('listaP',$data);		// ----- aqui
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 

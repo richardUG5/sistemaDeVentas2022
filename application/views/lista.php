@@ -30,6 +30,13 @@
     <?php echo form_close(); ?> 
   </div>
 
+<!-- BOTON PARA REPORTE con  PDF -->
+      
+      <a target="_blank" href="<?php echo base_url(); ?>index.php/empleado/reportepdf">
+        <button class="btn btn-success btn-block">Lista empleados PDF</button>        
+      </a>
+<!-- HASTA AQUI REPORTE EN PDF -->
+
   <div class="col-md-2">
     <?php echo form_open_multipart('usuarios/logout'); ?>
       <button type="submit" name="buton3" class="btn btn-outline-success"> <i class="fas fa-user"></i> CERRAR SESSION</button>

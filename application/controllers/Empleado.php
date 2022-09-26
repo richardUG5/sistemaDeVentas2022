@@ -1,6 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// importamos libreria-------------------------
+//require FCPATH.'vendor/autoload.php';
+
+//use PhpOffice\PhpSpreadsheet\Spreadsheet;
+//use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+// hasta aqui ------------------------------------
+
 class Empleado extends CI_Controller {
 
 	// recuperamos la lista de empleados
@@ -189,4 +196,79 @@ class Empleado extends CI_Controller {
 
 		redirect('empleado/deshabilitados','refresh'); // cargamos la lista	
 	}
+
+	//-- para reportes  Clase 4-VII-2022  desde aqui-------------------------------
+	public function reportepdf()
+	{
+	    if($this->session->userdata('tipo')=='admin')
+	    {
+	        $lista=$this->empleado_model->listaempleados();
+	        $lista=$lista->result();
+	                        
+	        $this->pdf = new Pdf();
+	        $this->pdf->AddPage('P'); //AddPage('P=hoja horizontal L=Hoja vertical')
+	        $this->pdf->AliasNbPages();
+	        $this->pdf->SetTitle("Lista de empleados");
+	        $this->pdf->SetLeftMargin(15);
+	        $this->pdf->SetRightMargin(15);
+	        //$this->pdf->SetFillColor(210,210,210);
+
+	        $this->pdf->SetFillColor(125,127,124);
+			$this->pdf->SetTextColor(0,1,51);
+
+
+	        $this->pdf->SetFont('Arial','BU',11);
+	        $this->pdf->Cell(10);
+	        $this->pdf->Cell(150,10,'LISTA DE EMPLEADOS',0,0,'C',1);
+
+	        $this->pdf->Ln(15);
+
+	        $this->pdf->SetFont('Arial','B',10);
+	        // SetFont([Family:Arial,Courier,Times,Symbol],[Style: ''=por defecto/regular, B=bold=Negrilla I=italic=Cursiva U=Underline=subrayado], size=tamaño=11)
+
+/* cell(ancho,alto,impresion, borde (0=sin borde, 1=borde total y TBLR=TopBottomLeftRight), ln)*/
+			// para atributos de la tabla
+	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'NOMBRE','TBLR',0,'L',1);
+	        $this->pdf->Cell(25,5,'APELLIDO1','TBLR',0,'L',1);
+	        $this->pdf->Cell(25,5,'APELLIDO2','TBLR',0,'L',1);
+	        $this->pdf->Cell(27,5,'FECHA_NAC','TBLR',0,'L',1);
+	        $this->pdf->Cell(25,5,'TELEFONO','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'CARGO','TBLR',0,'L',1);
+	        $this->pdf->Ln(5); // hace salto de linea
+
+	        $this->pdf->SetFont('Courier','',10); // Letras cursivas del reporte
+
+	        $num=1;
+
+	        foreach($lista as $row) 
+	        {
+	            $Nombre=$row->nombre;
+	            $Apellido1=$row->primerApellido;
+	            $Apellido2=$row->segundoApellido;
+	            $Fecha_Nac=$row->fechaNacimiento;
+	            $Telefono=$row->telefono;
+	            $Cargo=$row->cargo;
+	            
+	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Nombre,'TBLR',0,'L',0);
+	            $this->pdf->Cell(25,5,$Apellido1,'TBLR',0,'L',0);
+	            $this->pdf->Cell(25,5,$Apellido2,'TBLR',0,'L',0);
+	            $this->pdf->Cell(27,5,$Fecha_Nac,'TBLR',0,'L',0);
+	            $this->pdf->Cell(25,5,$Telefono,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Cargo,'TBLR',0,'L',0);
+	            
+	            $this->pdf->Ln(5); // hace salto de linea
+
+	            $num++;
+	        }
+
+			$this->pdf->Output("reporte5.pdf","I"); // I:muestra en Navegador y D: deescarga directo
+	    }
+	    else
+	    {
+	        redirect('usuarios/panel','refresh');
+	    }
+	} 
+	// Clase 4-VII-2022  hasta aqui-------------------------------
 }

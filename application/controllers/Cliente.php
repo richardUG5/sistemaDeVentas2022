@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Empleado extends CI_Controller {
+class Cliente extends CI_Controller {
 
-	// recuperamos la lista de empleados
+	// recuperamos la lista de Clientes
 	public function index()
 	{
-		$lista=$this->empleado_model->listaempleados();
-		$data['empleados']=$lista; // array relacional de tabla
+		$lista=$this->cliente_model->listaclientes();
+		$data['clientes']=$lista; // array relacional de tabla
 
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('lista',$data);		
+		$this->load->view('listaCliente',$data);	//----- aqui	
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*$this->load->view('inc/header');
@@ -44,7 +44,7 @@ class Empleado extends CI_Controller {
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formulario');		
+		$this->load->view('formularioCliente');		// ----aqui
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*$this->load->view('inc/header');
@@ -55,30 +55,32 @@ class Empleado extends CI_Controller {
 
 	public function agregarbd()
 	{
-		//-----BDD tabla-------formulario.php
-		$data['nombre']=mb_strtoupper($_POST['Nombre'],'UTF-8');
-		$data['primerApellido']=mb_strtoupper($_POST['Apellido1'],'UTF-8');
-		$data['segundoApellido']=mb_strtoupper($_POST['Apellido2'],'UTF-8');
-		$data['fechaNacimiento']=$_POST['FechaNac']; // -----aqui
-		$data['telefono']=$_POST['Telefono'];
-		$data['cargo']=mb_strtoupper($_POST['Cargo'],'UTF-8');
+		//-----BDD tabla-------formularioCliente.php
+		$data['nit_ci']=mb_strtoupper($_POST['Nit_Ci'],'UTF-8');
+		$data['nombreCliente']=mb_strtoupper($_POST['NombreCliente'],'UTF-8');
+		$data['razonSocial']=mb_strtoupper($_POST['RazonSocial'],'UTF-8');
+		$data['limiteCredito']=$_POST['LimiteCredito'];
+		
+		//$data['fechaNacimiento']=$_POST['FechaNac']; // -----aqui
+		//$data['telefono']=$_POST['Telefono'];
+		//$data['cargo']=mb_strtoupper($_POST['Cargo'],'UTF-8');
 
-		$lista=$this->empleado_model->agregarempleado($data);
-		redirect('empleado/index','refresh');
+		$lista=$this->cliente_model->agregarcliente($data);
+		redirect('cliente/index','refresh');
 
 	}
 	public function eliminarbd()
 	{
-		//-----BDD tabla-------formulario.php
-		$idempleado=$_POST['idempleado'];
+		//-----BDD tabla-------formularioCliente.php
+		$idcliente=$_POST['idcliente'];
 		
-		$this->empleado_model->eliminarempleado($idempleado);
-		redirect('empleado/index','refresh');
+		$this->cliente_model->eliminarcliente($idcliente);
+		redirect('cliente/index','refresh');
 
 	}
 
 
-// para transaccion --------------------
+/*// para transaccion --------------------
 
 	public function vender()
 	{
@@ -108,22 +110,19 @@ class Empleado extends CI_Controller {
 		redirect('empleado/index','refresh');
 	}
 
-// termina aqui transaccion --------------------------
-
-
-
+// termina aqui transaccion -------------------------- */
 
 	public function modificar()
 	{
 
-		//-----BDD tabla-------formulario.php
-		$idempleado=$_POST['idempleado'];		
-		$data['infoempleado']=$this->empleado_model->recuperarempleado($idempleado);
+		//-----BDD tabla-------formularioCliente.php
+		$idcliente=$_POST['idcliente'];		
+		$data['infocliente']=$this->cliente_model->recuperarcliente($idcliente);
 		
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formulariomodificar',$data);		
+		$this->load->view('formulariomodificarCliente',$data); //---aqui
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*
@@ -134,42 +133,43 @@ class Empleado extends CI_Controller {
 
 	public function modificarbd()
 	{
-		$idempleado=$_POST['idempleado'];
-		//-----BDD tabla-------formulario.php
-		$data['nombre']=mb_strtoupper($_POST['Nombre'],'UTF-8');
-		$data['primerApellido']=mb_strtoupper($_POST['Apellido1'],'UTF-8'); 
-		$data['segundoApellido']=mb_strtoupper($_POST['Apellido2'],'UTF-8'); 
-		$data['fechaNacimiento']=$_POST['FechaNac']; 
-		$data['telefono']=$_POST['Telefono'];
-		$data['cargo']=mb_strtoupper($_POST['Cargo'],'UTF-8');
+		$idcliente=$_POST['idcliente'];
+		//-----BDD tabla-------formularioCliente.php
+		$data['nit_ci']=mb_strtoupper($_POST['Nit_Ci'],'UTF-8');
+		$data['nombreCliente']=mb_strtoupper($_POST['NombreCliente'],'UTF-8'); 
+		$data['razonSocial']=mb_strtoupper($_POST['RazonSocial'],'UTF-8');
+		$data['limiteCredito']=$_POST['LimiteCredito']; 
+		//$data['fechaNacimiento']=$_POST['FechaNac']; 
+		//$data['telefono']=$_POST['Telefono'];
+		//$data['cargo']=mb_strtoupper($_POST['Cargo'],'UTF-8');
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 
-		$this->empleado_model->modificarempleado($idempleado, $data);	
+		$this->cliente_model->modificarcliente($idcliente, $data);	
 
-		redirect('empleado/index','refresh'); // cargamos la lista	
+		redirect('cliente/index','refresh'); // cargamos la listaClientes	
 	}
 
 	public function deshabilitarbd()
 	{
-		$idempleado=$_POST['idempleado'];
-		//-----BDD tabla-------formulario.php
+		$idcliente=$_POST['idcliente'];
+		//--BDD tabla-----formularioCliente.php
 		$data['estado']='0';
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
-		$this->empleado_model->modificarempleado($idempleado, $data);	
+		$this->cliente_model->modificarcliente($idcliente, $data);	
 
-		redirect('empleado/index','refresh'); // cargamos la lista	
+		redirect('cliente/index','refresh'); // cargamos la listaClientes	
 	}
-	// lista de empleados deshabilitados
+	// lista de clientes deshabilitados
 	public function deshabilitados()
 	{
-		$lista=$this->empleado_model->listaempleadosdeshabilitados();
-		$data['empleados']=$lista; // array relacional de tabla
+		$lista=$this->cliente_model->listaclientesdeshabilitados();
+		$data['clientes']=$lista; // array relacional de tabla
 
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listadeshabilitados',$data);		
+		$this->load->view('listadeshabilitadosClientes',$data);	// ---aqui
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		
@@ -180,13 +180,13 @@ class Empleado extends CI_Controller {
 
 	public function habilitarbd()
 	{
-		$idempleado=$_POST['idempleado'];
-		//-----BDD tabla-------formulario.php
+		$idcliente=$_POST['idcliente'];
+		//---BDD tabla-----formularioCliente.php
 		$data['estado']='1';
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
-		$this->empleado_model->modificarempleado($idempleado, $data);	
+		$this->cliente_model->modificarcliente($idcliente, $data);	
 
-		redirect('empleado/deshabilitados','refresh'); // cargamos la lista	
+		redirect('cliente/deshabilitados','refresh'); // cargamos la listaClientes	
 	}
 }

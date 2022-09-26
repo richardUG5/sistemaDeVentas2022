@@ -6,15 +6,15 @@
 <div class="row">
   <div class="col-md-12" >
     <font color="black">
-      <h1 style="background-color:darkcyan;" style="color:teal;" style="text-align:center" align="center"> <i class="fas fa-users"></i> LISTA DE EMPLEADOS ELIMINADOS</h1>
+      <h1 style="background-color:darkcyan;" style="color:teal;" style="text-align:center" align="center"> <i class="fas fa-users"></i> LISTA DE CLIENTES ELIMINADOS</h1>
     </font>
   </div>
 </div>
 
 <div class="row" style="background-color:white;">
   <div class="col-md-3">
-    <?php echo form_open_multipart('empleado/index'); ?>
-      <button type="submit" name="buton2" class="btn btn-outline-success" style="background-color:black;"> <i class="fa fa-users"></i> VER EMPLEADOS HABILITADOS</button>
+    <?php echo form_open_multipart('cliente/index'); ?>
+      <button type="submit" name="buton2" class="btn btn-outline-success" style="background-color:black;"> <i class="fa fa-users"></i> VER CLIENTES HABILITADOS</button>
     <?php echo form_close(); ?>
   </div>
 </div>
@@ -25,12 +25,11 @@
       <thead>
         <tr>
           <th scope="col">Nro</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Primer Apellido</th>
-          <th scope="col">Segundo Apellido</th>
-          <th scope="col">FechaNac</th>
-          <th scope="col">Telefono</th>
-          <th scope="col">Cargo</th>
+          <th scope="col">Nit/CI</th>
+          <th scope="col">Nombre Cliente</th>
+          <th scope="col">Razon Social</th>
+          <th scope="col">Limite Credito</th>
+
           <th scope="col">FechaRegistro</th>
           <th scope="col">FechaActualizacion</th>          
           <th scope="col">Habilitar</th>
@@ -43,25 +42,23 @@
 <?php
 
 $indice=1;
-foreach ($empleados->result() as $row)
+foreach ($clientes->result() as $row)
 {
   ?>
     <tr>
         <th scope="row"><?php echo $indice; ?></th>
-        <td><?php echo $row->nombre; ?></td>
-        <td><?php echo $row->primerApellido; ?></td>
-        <td><?php echo $row->segundoApellido; ?></td>
-        <td><?php echo formatearFecha($row->fechaNacimiento); ?></td>
-        <td><?php echo $row->telefono; ?></td>
-        <td><?php echo $row->cargo; ?></td>
+        <td><?php echo $row->nit_ci; ?></td>
+        <td><?php echo $row->nombreCliente; ?></td>
+        <td><?php echo $row->razonSocial; ?></td>
+        <td><?php echo $row->limiteCredito; ?></td>
+
         <td><?php echo formatearFecha($row->fechaRegistro); ?></td>
-        <td><?php echo formatearFecha($row->fechaActualizacion); ?></td>
-              
+        <td><?php echo formatearFecha($row->fechaActualizacion); ?></td>              
 
         <td>
-           <?php echo form_open_multipart("empleado/habilitarbd"); ?>
+           <?php echo form_open_multipart("cliente/habilitarbd"); ?>
 
-          <input type="hidden" name="idempleado" value="<?php echo $row->idEmpleado; ?>">
+          <input type="hidden" name="idcliente" value="<?php echo $row->idCliente; ?>">
           <input type="submit" name="buttonz" value="HABILITAR" class="btn btn-secondary">
 
           <?php echo form_close(); ?>
@@ -78,7 +75,6 @@ foreach ($empleados->result() as $row)
 </table>
 
 
-    </div>
-    
+    </div>    
   </div>
 </div>

@@ -68,6 +68,7 @@
                     </li>
                   </ul>                
             </li>
+<!-- fin empleados ------------------------------------------------------------------------->
 
 
 <!-- inicio para productos ------------------------------------------------------------------------->
@@ -115,6 +116,33 @@
                     </li>
                   </ul>
                 </li>
+<!-- fin usuarios ------------------------------------------------------------------------->
+
+<!-- ------------------------ para gestion de clientes ---------------------------------------- -->
+            <li class="nav-item">
+                
+                  <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo">
+                    <i class="fa fa-users"></i>Gestion Clientes
+                    <span class="fa fa-chevron-down"></span>
+                  </a>
+                  <ul class="nav child_menu">
+                    <li>
+                        <?php echo form_open_multipart('cliente/index');?>
+                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                            Clientes
+                          </button>
+                        <?php echo form_close();?>
+                    </li>
+                    <li>
+                        <?php echo form_open_multipart('sucursal/index');?>
+                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                            Sucursales
+                          </button>
+                        <?php echo form_close();?>
+                    </li>
+                  </ul>                
+            </li>
+<!-- fin clientes ------------------------------------------------------------------------->
 
 <!-- inicio para empleados ------------------------------------------------------------------------->
 <li class="nav-item">
