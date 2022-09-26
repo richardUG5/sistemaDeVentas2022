@@ -22,7 +22,7 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label class="col-form-label label-align" for="NOMBRE" >NIT/CI:</label>
+        <label class="col-form-label label-align" for="NITCI" >NIT/CI:</label>
       </div>
 
       <div class="col-md-5">
@@ -32,7 +32,7 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label class="col-form-label  label-align" for="PRIMERPELLIDO">NOMBRE CLIENTE:</label>
+        <label class="col-form-label  label-align" for="NOMBRECLIENTE">NOMBRE CLIENTE:</label>
       </div>
 
       <div class="col-md-5">
@@ -42,7 +42,7 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label class="col-form-label label-align" for="SEGUNDOAPELLIDO">RAZON SOCIAL:</label>
+        <label class="col-form-label label-align" for="RAZONSOCIAL">RAZON SOCIAL:</label>
       </div>
 
       <div class="col-md-5">
@@ -52,7 +52,7 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label class="col-form-label label-align" for="FECHA">LIMITE CREDITO:</label>
+        <label class="col-form-label label-align" for="LIMITECREDITO">LIMITE CREDITO:</label>
       </div>
 
       <div class="col-md-5">

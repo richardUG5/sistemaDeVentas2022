@@ -25,10 +25,10 @@
       <thead>
         <tr>
           <th scope="col">Nro</th>
-          <th scope="col">Nit/CI</th>
-          <th scope="col">Nombre Cliente</th>
-          <th scope="col">Razon Social</th>
-          <th scope="col">Limite Credito</th>
+          <th scope="col">NIT/CI</th>
+          <th scope="col">NOMBRE CLIENTE</th>
+          <th scope="col">RAZON CLIENTE</th>
+          <th scope="col">LIMITE CREDITO</th>
 
           <th scope="col">FechaRegistro</th>
           <th scope="col">FechaActualizacion</th>          

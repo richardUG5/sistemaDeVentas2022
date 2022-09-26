@@ -27,7 +27,7 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label class="col-form-label label-align" for="NITCI">NIT/CI:</label>
+        <label class="col-form-label label-align" for="NIT_CI">NIT/CI:</label>
       </div>
 
       <div class="col-md-5">

@@ -12,7 +12,7 @@ class Cliente extends CI_Controller {
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listaCliente',$data);	//----- aqui	
+		$this->load->view('listaCliente',$data);	//----- aqui creamos y obtemos lista de clientes	
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*$this->load->view('inc/header');
@@ -44,7 +44,7 @@ class Cliente extends CI_Controller {
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formularioCliente');		// ----aqui
+		$this->load->view('formularioCliente');		// ----aqui creamos formulario para agragar nuevo cliente
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*$this->load->view('inc/header');
@@ -122,7 +122,7 @@ class Cliente extends CI_Controller {
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formulariomodificarCliente',$data); //---aqui
+		$this->load->view('formulariomodificarCliente',$data); //---aqui creamos formulario para modificar datos
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*
@@ -169,7 +169,7 @@ class Cliente extends CI_Controller {
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listadeshabilitadosClientes',$data);	// ---aqui
+		$this->load->view('listadeshabilitadosClientes',$data);	// ---aqui creamos lista de clientes eliminados
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		

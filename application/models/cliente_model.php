@@ -26,7 +26,7 @@ class Cliente_model extends CI_Model {
 	{
 		$this->db->select('*'); // select *
 		$this->db->from('cliente'); // tabla
-		$this->db->where('idCliente',$idcliente); // hace WHERE idCliente=idcliente
+		$this->db->where('idCliente',$idcliente); // hace compracion WHERE idCliente=idcliente
 		// dnd (atributo de BdD [idCliente=idcliente] esto es variable q recibe)
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
@@ -43,7 +43,7 @@ class Cliente_model extends CI_Model {
 	{
 		$this->db->select('*'); // select *
 		$this->db->from('cliente'); // tabla
-		$this->db->where('estado','0'); // estado=0
+		$this->db->where('estado','0'); // donde where estado=0
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
 }
