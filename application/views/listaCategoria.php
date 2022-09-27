@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-12" >
     <font color="black">
-      <h1 style="background-color:darkcyan;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-users"></i> <i class="fas fa-list"></i> LISTA DE CATEGORIAS HABILITADOS</h1>
+      <h1 style="background-color:darkcyan;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-cubes"></i> <i class="fas fa-list"></i> LISTA DE CATEGORIAS HABILITADOS</h1>
     </font>
   </div>
 </div>
@@ -13,7 +13,7 @@
 <div class="row" style="background-color:black;">
   <div class="col-md-2">
     <?php echo form_open_multipart('categoria/agregar'); ?>
-      <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> AGREGAR CATEGORIA</button>
+      <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-cube"></i> <i class="fas fa-edit"></i> AGREGAR CATEGORIA</button>
     <?php echo form_close(); ?>
   </div>
 
@@ -25,14 +25,14 @@
 
   <div class="col-md-3">
     <?php echo form_open_multipart('categoria/deshabilitados'); ?>
-      <button type="submit" name="deshabilitar" class="btn btn-outline-danger btn-block"> <i class="fas fa-users"></i> <i class="far fa-trash-alt"></i> VER CATEGORIAS ELIMINADOS</button>
+      <button type="submit" name="deshabilitar" class="btn btn-outline-danger btn-block"> <i class="fas fa-cubes"></i> <i class="far fa-trash-alt"></i> VER CATEGORIAS ELIMINADOS</button>
     <?php echo form_close(); ?> 
   </div>
 
 <!-- BOTON PARA REPORTE con  PDF -->
       
       <a target="_blank" href="<?php echo base_url(); ?>index.php/categoria/reportepdf">
-        <button class="btn btn-outline-info btn-block"> <i class="fas fa-users"></i> LISTA CATEGORIAS PDF</button>        
+        <button class="btn btn-outline-info btn-block"> <i class="fas fa-cubes"></i> LISTA CATEGORIAS PDF</button>        
       </a>
 <!-- HASTA AQUI REPORTE EN PDF -->
 
@@ -92,7 +92,7 @@
 <?php echo form_open_multipart("categoria/eliminarbd"); ?>
 
 <input type="hidden" name="idcategoria" value="<?php echo $row->idCategoria; ?>">
-<button type="submit" class="btn btn-danger"><i class="fas fa-user"></i> <i class="far fa-trash-alt"></i> X</button>
+<button type="submit" class="btn btn-danger"><i class="fas fa-cube"></i> <i class="far fa-trash-alt"></i> X</button>
 
 <?php echo form_close(); ?>
 
@@ -111,14 +111,11 @@
   <?php
   $indice++; // contador incrementa
   }
-    ?>
-   
+    ?>   
    
   </tbody>
   </table>
 
-
-    </div>
-    
+    </div>    
   </div>
 </div>

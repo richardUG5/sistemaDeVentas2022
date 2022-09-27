@@ -27,7 +27,7 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label class="col-form-label label-align" for="NIT_CI">NIT/CI:</label>
+        <label class="col-form-label label-align" for="NITCI">NIT/CI:</label>
       </div>
 
       <div class="col-md-5">
@@ -80,9 +80,7 @@
 
   </div> <br> <!-- izquierda = left derecha = right  --> 
 
-</div>  <!-- fin agrupado todo formulario --> 
-
-  
+</div>  <!-- fin agrupado todo formulario -->   
 
         </div>
       </div>    

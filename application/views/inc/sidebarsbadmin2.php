@@ -18,22 +18,22 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>SISTEMA WEB VENTAS</span></a>
             </li>
-
+<!--
             <li>
                 <div class="container my-auto">
-                    <?php echo form_open_multipart('empleado/index'); ?>
+                    <?php// echo form_open_multipart('empleado/index'); ?>
                       <button type="submit" name="buton2" class="btn btn-info">GESTION DE EMPLEADO</button>
-                      <?php echo form_close(); ?>
+                      <?php// echo form_close(); ?>
                 </div>
             </li> <br>
 
             <li>
                 <div class="container my-auto">
-                    <?php echo form_open_multipart('producto/index'); ?>
+                    <?php// echo form_open_multipart('producto/index'); ?>
                       <button type="submit" name="buton3" class="btn btn-dark">GESTION DE PRODUCTO</button>
-                      <?php echo form_close(); ?>
+                      <?php// echo form_close(); ?>
                 </div>
-            </li> <br>
+            </li> <br> -->
 
             <!-- Divider 
             <hr class="sidebar-divider">  -->
@@ -62,7 +62,7 @@
                     <li>
                         <?php echo form_open_multipart('sucursal/index');?>
                           <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                            Sucursales
+                            Comercial
                           </button>
                         <?php echo form_close();?>
                     </li>
@@ -71,7 +71,7 @@
 <!-- fin empleados ------------------------------------------------------------------------->
 
 
-<!-- inicio para productos ------------------------------------------------------------------------->
+<!-- inicio para gestion de productos ------------------------------------------------------------------------->
 <li>
     <a>
       <i class="fa fa-cubes"></i>Gestion de Productos
@@ -91,8 +91,8 @@
             <?php echo form_close();?> 
         </li>
         <li>
-            <?php echo form_open_multipart('marca/index');?>
-              <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;"> Fabricante
+            <?php echo form_open_multipart('medida/index');?>
+              <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;"> Medida
               </button>
             <?php echo form_close();?>
         </li>
@@ -133,19 +133,19 @@
                           </button>
                         <?php echo form_close();?>
                     </li>
-                    <li>
-                        <?php echo form_open_multipart('sucursal/index');?>
+                <!--    <li>
+                        <?php // echo form_open_multipart('sucursal/index');?>
                           <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
                             Sucursales
                           </button>
-                        <?php echo form_close();?>
-                    </li>
+                        <?php // echo form_close();?>
+                    </li> ---->
                   </ul>                
             </li>
 <!-- fin clientes ------------------------------------------------------------------------->
 
 <!-- inicio para empleados ------------------------------------------------------------------------->
-<li class="nav-item">
+<!-- ---<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-male"></i>
@@ -154,9 +154,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-<?php echo form_open_multipart('empleado/index');?>
+<?php //echo form_open_multipart('empleado/index');?>
   <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">Empleados </button>
-<?php echo form_close();?>
+<?php// echo form_close();?> -->
 
 
 <!--

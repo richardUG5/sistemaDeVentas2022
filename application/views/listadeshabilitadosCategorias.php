@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-12" >
     <font color="black">
-      <h1 style="background-color:darkcyan;" style="color:teal;" style="text-align:center" align="center"> <i class="fas fa-users"></i> LISTA DE CATEGORIAS ELIMINADOS</h1>
+      <h1 style="background-color:darkcyan;" style="color:teal;" style="text-align:center" align="center"> <i class="fas fa-cubes"></i> LISTA DE CATEGORIAS ELIMINADOS</h1>
     </font>
   </div>
 </div>
@@ -13,7 +13,7 @@
 <div class="row" style="background-color:white;">
   <div class="col-md-3">
     <?php echo form_open_multipart('categoria/index'); ?>
-      <button type="submit" name="buton2" class="btn btn-outline-success" style="background-color:black;"> <i class="fa fa-users"></i> VER CATEGORIAS HABILITADOS</button>
+      <button type="submit" name="buton2" class="btn btn-outline-success" style="background-color:black;"> <i class="fa fa-cubes"></i> VER CATEGORIAS HABILITADOS</button>
     <?php echo form_close(); ?>
   </div>
 </div>
@@ -23,10 +23,8 @@
       <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>
-          <th scope="col">Nro</th>
-          
-          <th scope="col">Nombre Categoria</th>
-          
+          <th scope="col">Nro</th>          
+          <th scope="col">Nombre Categoria</th>          
           <th scope="col">FechaRegistro</th>
           <th scope="col">FechaActualizacion</th>          
           <th scope="col">Habilitar</th>
@@ -63,12 +61,10 @@ foreach ($categorias->result() as $row)
   <?php
   $indice++; // contador incrementa
 }
-?>
-   
+?>   
    
   </tbody>
 </table>
-
 
     </div>    
   </div>

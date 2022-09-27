@@ -8,15 +8,12 @@
     </font>
 </div> -->
 <div class="container my-auto">
-
-        <div class="copyright text-center my-auto">
-            <font color="orange">
-        <span>SISTEMA WEB VENTAS PARA LA TIENDA COMERCIAL &copy; 2022</span>
-            </font>
-        </div>
-
+    <div class="copyright text-center my-auto">
+        <font color="orange">
+            <span>SISTEMA WEB VENTAS PARA LA TIENDA COMERCIAL &copy; 2022</span>
+        </font>
+    </div>
 </div>
-
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -213,8 +210,6 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->

@@ -6,12 +6,13 @@
             //si se requiere agregar una imagen
             //$this->Image('ruta de la imagen',x,y,ancho,alto);
 
-            $ruta=base_url()."uploads/emp2.png";
+            $ruta=base_url()."uploads/membrete1.png";
             //$this->Image($ruta,0,0,211,297);
             $this->Image($ruta,50,70,100,100);
 
-            $this->SetFont('Arial','B',10);
+            $this->SetFont('Arial','B',12);
             $this->Cell(30);
+            $this->SetTextColor(148,119,6);
             $this->Cell(120,10,'SISTEMA WEB DE VENTAS PARA UNA TIENDA COMERCIAL DE CERAMICA',0,0,'C');
             $this->Ln('10');
        }

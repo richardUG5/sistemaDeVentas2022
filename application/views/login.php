@@ -12,11 +12,8 @@
     </div>
   </main>
 
-
-
 <div class="container" style="background-color:darkcyan;" style="color:darkcyan;" style="text-align:center">
  
-
 <?php
 // llevar a un helper recomendable por el ing.
   switch ($msg) 
@@ -41,8 +38,6 @@
   <h1 class="text-danger"><?php echo $mensaje; ?> </h1>
   <!-- <h1 class="text-danger"><?php // echo vermensaje($msg); ?> </h1> -->
 </div>
-
-
 
 <?php
   echo form_open_multipart('usuarios/validar', array('id'=>'form1','class'=>'form-control'));

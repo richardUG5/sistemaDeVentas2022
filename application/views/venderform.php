@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -36,7 +35,6 @@ foreach ($infoclientes->result() as $row){
       <button type="submit" class="btn btn-primary">AGREGAR EMPLEADO</button>
 
       <?php echo form_close(); ?>
-
 
     </div>    
   </div>

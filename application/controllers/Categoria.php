@@ -74,11 +74,10 @@ class Categoria extends CI_Controller {
 		//-----BDD tabla---------formularioCategoria.php
 		$idcategoria=$_POST['idcategoria'];
 		
-		$this->categoria_model->eliminarcategoria($idcliente);
+		$this->categoria_model->eliminarcategoria($idcategoria);
 		redirect('categoria/index','refresh');
 
 	}
-
 
 /*// para transaccion --------------------
 

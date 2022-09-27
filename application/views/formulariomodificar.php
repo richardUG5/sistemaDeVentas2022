@@ -102,9 +102,7 @@
 
   </div> <br> <!-- izquierda = left derecha = right  --> 
 
-</div>  <!-- fin agrupado todo formulario --> 
-
-  
+</div>  <!-- fin agrupado todo formulario -->   
 
         </div>
       </div>    

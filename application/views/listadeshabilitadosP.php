@@ -1,4 +1,3 @@
-
 <div class="container col-xl"> <!-- para reponsivo de vista -->
   <div class="row" >
     <div class="col-xl"> <!-- para reponsivo de vista -->
@@ -15,7 +14,7 @@
   <div class="col-md-12" style="background-color:white;">
 
       <?php echo form_open_multipart('producto/index'); ?>
-      <button type="submit" name="buton2" class="btn btn-outline-success" style="background-color:black;">VER PRODUCTOS HABILITADOS</button>
+      <button type="submit" name="buton2" class="btn btn-outline-success" style="background-color:black;"> <i class="fas fa-cubes"></i> VER PRODUCTOS HABILITADOS</button>
       <?php echo form_close(); ?>
   </div>
 </div>
@@ -68,14 +67,11 @@ foreach ($productos->result() as $row)
   <?php
   $indice++; // contador incrementa
 }
-?>
-   
+?>   
    
   </tbody>
 </table>
 
-
-    </div>
-    
+    </div>    
   </div>
 </div>

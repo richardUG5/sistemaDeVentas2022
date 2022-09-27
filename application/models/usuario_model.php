@@ -20,7 +20,7 @@ class Usuario_model extends CI_Model {
     public function listaClientes()
     {
         $this->db->select('*'); // select *
-        $this->db->from('clientes'); // tabla
+        $this->db->from('cliente'); // tabla
         // $this->db->where('habilitado','1'); // habilitado=1 ------para auditoria
         return $this->db->get(); // devolucion del resultado de la consulta
     }

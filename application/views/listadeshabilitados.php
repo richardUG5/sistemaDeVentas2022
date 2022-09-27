@@ -1,4 +1,3 @@
-
 <div class="container col-xl"> <!-- para reponsivo de vista -->
   <div class="row">
     <div class="col-xl"> <!-- para reponsivo de vista -->
@@ -71,14 +70,11 @@ foreach ($empleados->result() as $row)
   <?php
   $indice++; // contador incrementa
 }
-?>
-   
+?>   
    
   </tbody>
 </table>
 
-
-    </div>
-    
+    </div>    
   </div>
 </div>

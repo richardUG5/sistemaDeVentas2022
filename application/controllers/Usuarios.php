@@ -35,7 +35,7 @@ class Usuarios extends CI_Controller {
                     $this->session->set_userdata('idusuario',$row->idUsuario);
                     $this->session->set_userdata('login',$row->login); // -----vista login
                     $this->session->set_userdata('tipo',$row->tipo);
-                    redirect('usuarios/panel','refresh'); //redireccionamos 
+                    redirect('Usuarios/panel','refresh'); //redireccionamos volvi u en mayuscula
                 }                        
             }
             else
@@ -72,9 +72,6 @@ class Usuarios extends CI_Controller {
                $this->session->sess_destroy(); // destruimos la session              
                redirect('usuarios/index/1','refresh');               
         }
-
-
-
 
 	public function prueba()
 	{

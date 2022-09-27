@@ -1,4 +1,3 @@
-
 <div class="container col-xl"> <!-- para reponsivo de vista -->
   <div class="row">
     <div class="col-xl"> <!-- para reponsivo de vista -->
@@ -14,7 +13,7 @@
 <div class="row" style="background-color:black;">
   <div class="col-md-2">
     <?php echo form_open_multipart('cliente/agregar'); ?>
-      <button type="submit" name="agregar" class="btn btn-outline-warning"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> AGREGAR CLIENTE</button>
+      <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> AGREGAR CLIENTE</button>
     <?php echo form_close(); ?>
   </div>
 
@@ -26,13 +25,20 @@
 
   <div class="col-md-3">
     <?php echo form_open_multipart('cliente/deshabilitados'); ?>
-      <button type="submit" name="deshabilitar" class="btn btn-outline-info"> <i class="fas fa-user"></i> <i class="fas fa-list"></i> <i class="far fa-trash-alt"></i> VER CLIENTES ELIMINADOS</button>
+      <button type="submit" name="deshabilitar" class="btn btn-outline-danger btn-block"> <i class="fas fa-users"></i> <i class="far fa-trash-alt"></i> VER CLIENTES ELIMINADOS</button>
     <?php echo form_close(); ?> 
   </div>
 
+<!-- BOTON PARA REPORTE con  PDF -->
+      
+      <a target="_blank" href="<?php echo base_url(); ?>index.php/cliente/reportepdf">
+        <button class="btn btn-outline-info btn-block"> <i class="fas fa-users"></i> LISTA CLIENTES PDF</button>        
+      </a>
+<!-- HASTA AQUI REPORTE EN PDF -->
+
   <div class="col-md-2">
     <?php echo form_open_multipart('usuarios/logout'); ?> <!-- retorna a login -->
-      <button type="submit" name="buton3" class="btn btn-outline-success"> <i class="fas fa-user"></i> CERRAR SESSION</button>
+      <button type="submit" name="buton3" class="btn btn-outline-success btn-block"> <i class="fas fa-user"></i> CERRAR SESSION</button>
     <?php echo form_close(); ?>
   </div>
 
@@ -43,7 +49,7 @@
 
       <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
       <thead>
-        <tr>
+        <tr bgcolor="#022424">
           <th scope="col">Nro</th>
           <th scope="col">NIT/CI</th>
           <th scope="col">NOMBRE CLIENTE</th>   
@@ -68,7 +74,7 @@
     {
   ?> <!-- inicio tabla------------------------------->
     <tr> <!-- atributo de  bd --->
-        <th scope="row"><?php echo $indice; ?></th>
+        <th bgcolor="#022424" scope="row"><?php echo $indice; ?></th>
         <td><?php echo $row->nit_ci; ?></td>
         <td><?php echo $row->nombreCliente; ?></td>
         <td><?php echo $row->razonSocial; ?></td>
@@ -81,7 +87,7 @@
 <?php echo form_open_multipart("cliente/modificar"); ?>
 
 <input type="hidden" name="idcliente" value="<?php echo $row->idCliente; ?>">        
-<button type="submit" class="btn btn-primary"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> EDITAR</button>
+<button type="submit" class="btn btn-info"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> EDITAR</button>
 
 <?php echo form_close(); ?>
         </td>
@@ -100,7 +106,7 @@
 <?php echo form_open_multipart("cliente/deshabilitarbd"); ?>
 
 <input type="hidden" name="idcliente" value="<?php echo $row->idCliente; ?>">
-<button type="submit" class="btn btn-success"> <i class="fas fa-user"></i>  <i class="far fa-trash-alt"></i> QUITAR</button>
+<button type="submit" class="btn btn-danger"> <i class="fas fa-user"></i>  <i class="far fa-trash-alt"></i> QUITAR</button>
 
 <?php echo form_close(); ?>
         </td>
@@ -109,14 +115,11 @@
   <?php
   $indice++; // contador incrementa
   }
-    ?>
-   
+    ?>   
    
   </tbody>
   </table>
 
-
-    </div>
-    
+    </div>    
   </div>
 </div>

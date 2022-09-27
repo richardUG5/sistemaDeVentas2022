@@ -29,14 +29,12 @@ class Categoria_model extends CI_Model {
 		// dnd (atributo de BdD [idCategoria=idcategoria] esto es variable q recibe)
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
-
 	public function modificarcategoria($idcategoria, $data)
 	{		
 		$this->db->where('idCategoria',$idcategoria); // hace WHERE idCategoria=idcategoria
 		// dnd (atributo de BdD [idCliente=idcliente] esto es variable q recibe)
 		$this->db->update('categoria',$data);		
 	}
-
 	public function listacategoriasdeshabilitados()
 	{
 		$this->db->select('*'); // select *

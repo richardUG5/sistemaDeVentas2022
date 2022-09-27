@@ -70,6 +70,21 @@
       </div> 
     </div> 
 
+
+<div class="row">              
+    <div class="col-md-4">
+      <label class="col-form-label label-align" for="cargo">SLECCIONE UNA OPCION:</label>
+    </div>
+    <div class="col-md-1">
+        <select class="col-form-label label-align" name="cargo" id="cargo">
+            <option class="col-md-12" value="volvo">Admin</option>
+            <option value="saab">Vendedor1</option>
+            <option value="mercedes">Vendedor2</option>
+            <option value="audi">Secre</option>
+        </select>
+    </div>
+</div> <br>
+
     <div class="row">              
       <div class="col-md-4">
         <label class="col-form-label label-align" for="CARGO">CARGO:</label>

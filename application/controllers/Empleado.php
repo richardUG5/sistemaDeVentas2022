@@ -81,9 +81,7 @@ class Empleado extends CI_Controller {
 		
 		$this->empleado_model->eliminarempleado($idempleado);
 		redirect('empleado/index','refresh');
-
 	}
-
 
 // para transaccion --------------------
 
@@ -117,12 +115,8 @@ class Empleado extends CI_Controller {
 
 // termina aqui transaccion --------------------------
 
-
-
-
 	public function modificar()
 	{
-
 		//-----BDD tabla-------formulario.php
 		$idempleado=$_POST['idempleado'];		
 		$data['infoempleado']=$this->empleado_model->recuperarempleado($idempleado);

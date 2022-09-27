@@ -32,12 +32,11 @@ class Producto extends CI_Controller {
 		$this->load->view('inc/footer');*/
 	}
 
-
 	public function agregarbd()
 	{
 		//-----BDD tabla-------formularioP.php
-		$data['nombre']=strtoupper($_POST['Nombre'], 'UTF-8');
-		$data['descripcion']=strtoupper($_POST['Descripcion'], 'UTF-8');
+		$data['nombre']=mb_strtoupper($_POST['Nombre'], 'UTF-8');
+		$data['descripcion']=mb_strtoupper($_POST['Descripcion'], 'UTF-8');
 		$data['color']=mb_strtoupper($_POST['Color'], 'UTF-8');
 		$data['unidadMedida']=$_POST['UnidadMedida'];
 		$data['precio']=$_POST['Precio'];
@@ -134,4 +133,83 @@ class Producto extends CI_Controller {
 
 		redirect('producto/deshabilitados','refresh'); // cargamos la lista	
 	}
+
+	//-- para reportes  Clase 4-VII-2022  desde aqui-------------------------------
+	public function reportepdf()
+	{
+	    if($this->session->userdata('tipo')=='admin')
+	    {
+	        $lista=$this->producto_model->listaproductos();
+	        $lista=$lista->result();
+	                        
+	        $this->pdf = new Pdf();
+	        $this->pdf->AddPage('P'); //AddPage('P=hoja horizontal L=Hoja vertical')
+	        $this->pdf->AliasNbPages();
+	        $this->pdf->SetTitle("Lista de productos");
+	        $this->pdf->SetLeftMargin(15);
+	        $this->pdf->SetRightMargin(15);
+	        //$this->pdf->SetFillColor(210,210,210);
+
+	        $this->pdf->SetFillColor(125,127,124);
+			$this->pdf->SetTextColor(0,1,51);
+
+
+	        $this->pdf->SetFont('Arial','BU',11);
+	        $this->pdf->Cell(10);
+	        $this->pdf->Cell(150,10,'LISTA DE PRODUCTOS',0,0,'C',1);
+
+	        $this->pdf->Ln(15);
+
+	        $this->pdf->SetFont('Arial','B',10);
+	        // SetFont([Family:Arial,Courier,Times,Symbol],[Style: ''=por defecto/regular, B=bold=Negrilla I=italic=Cursiva U=Underline=subrayado], size=tamaño=11)
+
+/* cell(ancho,alto,impresion, borde (0=sin borde, 1=borde total y TBLR=TopBottomLeftRight), ln)*/
+			// para atributos de la tabla
+	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);	        
+	        $this->pdf->Cell(35,5,'NOMBRE','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'DESCRIPCION','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'COLOR','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'UNIDADMEDIDA','TBLR',0,'L',1);
+	        $this->pdf->Cell(25,5,'PRECIO','TBLR',0,'L',1);
+	        //$this->pdf->Cell(35,5,'CARGO','TBLR',0,'L',1);
+	        $this->pdf->Ln(5); // hace salto de linea
+
+	        $this->pdf->SetFont('Courier','',10); // Letras cursivas del reporte
+
+	        $num=1;
+
+	        foreach($lista as $row) 
+	        {	// Variable -----BD------
+	            $Nombre=$row->nombre;
+	            $Descripcion=$row->descripcion;
+	            $Color=$row->color;
+	            $UnidadMedida=$row->unidadMedida;
+	            $Precio=$row->precio;
+
+	            //$Telefono=$row->telefono;
+	            //$Cargo=$row->cargo;
+	            
+	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Nombre,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Descripcion,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Color,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$UnidadMedida,'TBLR',0,'L',0);
+	            $this->pdf->Cell(25,5,$Precio,'TBLR',0,'L',0);
+
+	            //$this->pdf->Cell(25,5,$Telefono,'TBLR',0,'L',0);
+	            //$this->pdf->Cell(35,5,$Cargo,'TBLR',0,'L',0);
+	            
+	            $this->pdf->Ln(5); // hace salto de linea
+
+	            $num++;
+	        }
+
+			$this->pdf->Output("reporte5.pdf","I"); // I:muestra en Navegador y D: deescarga directo
+	    }
+	    else
+	    {
+	        redirect('usuarios/panel','refresh');
+	    }
+	} 
+	// Clase 4-VII-2022  hasta aqui-------------------------------
 }

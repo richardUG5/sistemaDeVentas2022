@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cliente extends CI_Controller {
+class Comercial extends CI_Controller {
 
-	// recuperamos la lista de Clientes
+	// recuperamos la lista de Tiendas
 	public function index()
 	{
-		$lista=$this->cliente_model->listaclientes();
-		$data['clientes']=$lista; // array relacional de tabla
+		$lista=$this->comercial_model->listacomerciales();
+		$data['comerciales']=$lista; // array relacional de tabla
 
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listaCliente',$data);	//----- aqui	
+		$this->load->view('listaComercial',$data);	//----- aqui	
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*$this->load->view('inc/header');
@@ -43,7 +43,7 @@ class Cliente extends CI_Controller {
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formularioCliente');		// ----aqui
+		$this->load->view('formularioComercial');		// ----aqui
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*$this->load->view('inc/header');
@@ -52,26 +52,21 @@ class Cliente extends CI_Controller {
 	}
 	public function agregarbd()
 	{
-		//-----BDD tabla-------formularioCliente.php
-		$data['nit_ci']=mb_strtoupper($_POST['Nit_Ci'],'UTF-8');
-		$data['nombreCliente']=mb_strtoupper($_POST['NombreCliente'],'UTF-8');
-		$data['razonSocial']=mb_strtoupper($_POST['RazonSocial'],'UTF-8');
-		$data['limiteCredito']=$_POST['LimiteCredito'];
-		
-		//$data['fechaNacimiento']=$_POST['FechaNac']; // -----aqui
-		//$data['telefono']=$_POST['Telefono'];
-		//$data['cargo']=mb_strtoupper($_POST['Cargo'],'UTF-8');
+		//-----BDD tabla-------formularioComercial.php		
+		$data['nombreComercial']=mb_strtoupper($_POST['NombreComercial'],'UTF-8');
+		$data['telefono']=mb_strtoupper($_POST['Telefono'],'UTF-8');
+		$data['direccion']=mb_strtoupper($_POST['Direccion'],'UTF-8');	
 
-		$lista=$this->cliente_model->agregarcliente($data);
-		redirect('cliente/index','refresh');
+		$lista=$this->comercial_model->agregarcomercial($data);
+		redirect('comercial/index','refresh');
 	}
 	public function eliminarbd()
 	{
-		//-----BDD tabla-------formularioCliente.php
-		$idcliente=$_POST['idcliente'];
+		//-----BDD tabla-------formularioComercial.php
+		$idcomercial=$_POST['idcomercial'];
 		
-		$this->cliente_model->eliminarcliente($idcliente);
-		redirect('cliente/index','refresh');
+		$this->comercial_model->eliminarcomercial($idcomercial);
+		redirect('comercial/index','refresh');
 	}
 
 /*// para transaccion --------------------
@@ -107,14 +102,14 @@ class Cliente extends CI_Controller {
 
 	public function modificar()
 	{
-		//-----BDD tabla-------formularioCliente.php
-		$idcliente=$_POST['idcliente'];		
-		$data['infocliente']=$this->cliente_model->recuperarcliente($idcliente);
+		//-----BDD tabla-------formularioComercial.php
+		$idcomercial=$_POST['idcomercial'];		
+		$data['infocomercial']=$this->comercial_model->recuperarcomercial($idcomercial);
 		
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formulariomodificarCliente',$data); //---aqui
+		$this->load->view('formulariomodificarComercial',$data); //---aqui
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*
@@ -124,42 +119,38 @@ class Cliente extends CI_Controller {
 	}
 	public function modificarbd()
 	{
-		$idcliente=$_POST['idcliente'];
-		//-----BDD tabla-------formularioCliente.php
-		$data['nit_ci']=mb_strtoupper($_POST['Nit_Ci'],'UTF-8');
-		$data['nombreCliente']=mb_strtoupper($_POST['NombreCliente'],'UTF-8'); 
-		$data['razonSocial']=mb_strtoupper($_POST['RazonSocial'],'UTF-8');
-		$data['limiteCredito']=$_POST['LimiteCredito']; 
-		//$data['fechaNacimiento']=$_POST['FechaNac']; 
-		//$data['telefono']=$_POST['Telefono'];
-		//$data['cargo']=mb_strtoupper($_POST['Cargo'],'UTF-8');
+		$idcomercial=$_POST['idcomercial'];
+		//-----BDD tabla-------formularioComercial.php
+		$data['nombreComercial']=mb_strtoupper($_POST['NombreComercial'],'UTF-8'); 
+		$data['telefono']=mb_strtoupper($_POST['Telefono'],'UTF-8');
+		$data['direccion']=mb_strtoupper($_POST['Direccion'],'UTF-8');
+		
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 
-		$this->cliente_model->modificarcliente($idcliente, $data);	
-
-		redirect('cliente/index','refresh'); // cargamos la listaClientes	
+		$this->comercial_model->modificarcomercial($idcomercial, $data);
+		redirect('comercial/index','refresh'); // cargamos la listaClientes	
 	}
 	public function deshabilitarbd()
 	{
-		$idcliente=$_POST['idcliente'];
-		//--BDD tabla-----formularioCliente.php
+		$idcomercial=$_POST['idcomercial'];
+		//--BDD tabla-----formularioComercial.php
 		$data['estado']='0';
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
-		$this->cliente_model->modificarcliente($idcliente, $data);	
+		$this->comercial_model->modificarcomercial($idcomercial, $data);	
 
-		redirect('cliente/index','refresh'); // cargamos la listaClientes	
+		redirect('cliente/index','refresh'); // cargamos la listaComercial
 	}
-	// lista de clientes deshabilitados
+	// lista de tiendas deshabilitados
 	public function deshabilitados()
 	{
-		$lista=$this->cliente_model->listaclientesdeshabilitados();
-		$data['clientes']=$lista; // array relacional de tabla
+		$lista=$this->comercial_model->listacomercialesdeshabilitados();
+		$data['comerciales']=$lista; // array relacional de tabla
 
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listadeshabilitadosClientes',$data);	// ---aqui
+		$this->load->view('listadeshabilitadosComerciales',$data);	// ---aqui
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		
@@ -169,27 +160,27 @@ class Cliente extends CI_Controller {
 	}
 	public function habilitarbd()
 	{
-		$idcliente=$_POST['idcliente'];
-		//---BDD tabla-----formularioCliente.php
+		$idcomercial=$_POST['idcomercial'];
+		//---BDD tabla-----formularioComercial.php
 		$data['estado']='1';
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
-		$this->cliente_model->modificarcliente($idcliente, $data);	
+		$this->comercial_model->modificarcomercial($idcomercial, $data);	
 
-		redirect('cliente/deshabilitados','refresh'); // cargamos la listaClientes	
+		redirect('comercial/deshabilitados','refresh'); // cargamos la listaTiendas	
 	}
 	//-- para reportes  Clase 4-VII-2022  desde aqui-------------------------------
 	public function reportepdf()
 	{
 	    if($this->session->userdata('tipo')=='admin')
 	    {
-	        $lista=$this->cliente_model->listaclientes();
+	        $lista=$this->comercial_model->listacomerciales();
 	        $lista=$lista->result();
 	                        
 	        $this->pdf = new Pdf();
 	        $this->pdf->AddPage('P'); //AddPage('P=hoja horizontal L=Hoja vertical')
 	        $this->pdf->AliasNbPages();
-	        $this->pdf->SetTitle("Lista de clientes");
+	        $this->pdf->SetTitle("Lista de comerciales");
 	        $this->pdf->SetLeftMargin(15);
 	        $this->pdf->SetRightMargin(15);
 	        //$this->pdf->SetFillColor(210,210,210);
@@ -200,7 +191,7 @@ class Cliente extends CI_Controller {
 
 	        $this->pdf->SetFont('Arial','BU',11);
 	        $this->pdf->Cell(10);
-	        $this->pdf->Cell(150,10,'LISTA DE CLIENTES',0,0,'C',1);
+	        $this->pdf->Cell(150,10,'LISTA DE COMERCIALES',0,0,'C',1);
 
 	        $this->pdf->Ln(15);
 
@@ -209,13 +200,10 @@ class Cliente extends CI_Controller {
 
 /* cell(ancho,alto,impresion, borde (0=sin borde, 1=borde total y TBLR=TopBottomLeftRight), ln)*/
 			// para atributos de la tabla
-	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'NIT/CI','TBLR',0,'L',1);
+	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);	        
 	        $this->pdf->Cell(35,5,'NOMBRE','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'RAZONSOCIAL','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'LIMITECREDITO','TBLR',0,'L',1);
-	        //$this->pdf->Cell(25,5,'TELEFONO','TBLR',0,'L',1);
-	        //$this->pdf->Cell(35,5,'CARGO','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'TELEFONO','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'DIRECCION','TBLR',0,'L',1);	        
 	        $this->pdf->Ln(5); // hace salto de linea
 
 	        $this->pdf->SetFont('Courier','',10); // Letras cursivas del reporte
@@ -224,23 +212,15 @@ class Cliente extends CI_Controller {
 
 	        foreach($lista as $row) 
 	        {	// Variable -----BD------
-	            $NitCi=$row->nit_ci;
-	            $Nombre=$row->nombreCliente;
-	            $RazonSocial=$row->razonSocial;
-	            $LimiteCredito=$row->limiteCredito;
-	            //$Fecha_Nac=$row->fechaNacimiento;
-	            //$Telefono=$row->telefono;
-	            //$Cargo=$row->cargo;
 	            
-	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$NitCi,'TBLR',0,'L',0);
+	            $Nombre=$row->nombreComercial;
+	            $Telefono=$row->telefono;
+	            $Direccion=$row->direccion;
+	            
+	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);	            
 	            $this->pdf->Cell(35,5,$Nombre,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$RazonSocial,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$LimiteCredito,'TBLR',0,'L',0);
-
-	            //$this->pdf->Cell(27,5,$Fecha_Nac,'TBLR',0,'L',0);
-	            //$this->pdf->Cell(25,5,$Telefono,'TBLR',0,'L',0);
-	            //$this->pdf->Cell(35,5,$Cargo,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Telefono,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Direccion,'TBLR',0,'L',0);
 	            
 	            $this->pdf->Ln(5); // hace salto de linea
 
