@@ -47,12 +47,12 @@
 <div class="table-responsive"> <!-- para mismo tamaño las filas con linea -->
   <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
     <thead>
-      <tr bgcolor="#022424">
+      <tr bgcolor="#022424" align=center>
         <th scope="col">Nro</th>
         <th scope="col">Nombre</th>
         <th scope="col">Primer Apellido</th>   
         <th scope="col">Segundo Apellido</th>
-        <th scope="col">FechaNacimiento</th>
+        <th scope="col">Fecha Nacimiento</th>
         <th scope="col">Telefono</th>
         <th scope="col">Cargo</th>
         <th scope="col">FechaRegistro</th>

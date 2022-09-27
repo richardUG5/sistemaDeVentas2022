@@ -5,15 +5,15 @@
 <div class="row">
   <div class="col-md-12" >
     <font color="cyan">
-      <h1 style="background-color:#022424;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-users"></i> <i class="fas fa-list"></i> LISTA DE CLIENTES HABILITADOS</h1>
+      <h1 style="background-color:#022424;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-users"></i> <i class="fas fa-list"></i> LISTA DE COMERCIALES HABILITADOS</h1>
     </font>
   </div>
 </div>
 
 <div class="row" style="background-color:#022424;">
   <div class="col-md-2">
-    <?php echo form_open_multipart('cliente/agregar'); ?>
-      <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> AGREGAR CLIENTE</button>
+    <?php echo form_open_multipart('comercial/agregar'); ?>
+      <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> AGREGAR COMERCIAL</button>
     <?php echo form_close(); ?>
   </div>
 
@@ -24,15 +24,15 @@
   </div> -->
 
   <div class="col-md-3">
-    <?php echo form_open_multipart('cliente/deshabilitados'); ?>
-      <button type="submit" name="deshabilitar" class="btn btn-outline-danger btn-block"> <i class="fas fa-users"></i> <i class="far fa-trash-alt"></i> VER CLIENTES ELIMINADOS</button>
+    <?php echo form_open_multipart('comercial/deshabilitados'); ?>
+      <button type="submit" name="deshabilitar" class="btn btn-outline-danger btn-block"> <i class="fas fa-users"></i> <i class="far fa-trash-alt"></i> VER COMERCIALES ELIMINADOS</button>
     <?php echo form_close(); ?> 
   </div>
 
 <!-- BOTON PARA REPORTE con  PDF -->
       
-      <a target="_blank" href="<?php echo base_url(); ?>index.php/cliente/reportepdf">
-        <button class="btn btn-outline-info btn-block"> <i class="fas fa-users"></i> LISTA CLIENTES PDF</button>        
+      <a target="_blank" href="<?php echo base_url(); ?>index.php/comercial/reportepdf">
+        <button class="btn btn-outline-info btn-block"> <i class="fas fa-users"></i> LISTA COMERCIALES PDF</button>        
       </a>
 <!-- HASTA AQUI REPORTE EN PDF -->
 
@@ -44,17 +44,16 @@
 
 </div>
 
-<!-- tabla para listar todos los datos de la tabla clientes -->
+<!-- tabla para listar todos los datos de la tabla comerciales -->
 <div class="table-responsive"> <!-- para mismo tamaño las filas con linea -->
 
       <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr bgcolor="#022424" align=center>
           <th scope="col">Nro</th>
-          <th scope="col">NIT/CI</th>
-          <th scope="col">CORREO ELECTRONICO</th>   
-          <th scope="col">RAZON SOCIAL</th>
-          <th scope="col">LIMITE CREDITO</th>
+          <th scope="col">NOMBRE COMERCIAL</th>   
+          <th scope="col">TELEFONO</th>
+          <th scope="col">DIRECCION</th>
           
        <!--   <th scope="col">FechaRegistro</th>
           <th scope="col">FechaActualizacion</th> -->
@@ -70,32 +69,31 @@
   <?php
 
   $indice=1;
-  foreach ($clientes->result() as $row)
+  foreach ($comerciales->result() as $row)
     {
   ?> <!-- inicio tabla------------------------------->
     <tr th class="text-center"> <!-- atributo de  bd --->
         <th bgcolor="#022424" scope="row"><?php echo $indice; ?></th>
-        <td><?php echo $row->nit_ci; ?></td>
-        <td><?php echo $row->correoElectronico; ?></td>
-        <td><?php echo $row->razonSocial; ?></td>
-        <td><?php echo $row->limiteCredito; ?></td>
+        <td><?php echo $row->nombreComercial; ?></td>
+        <td><?php echo $row->telefono; ?></td>
+        <td><?php echo $row->direccion; ?></td>
 
       <!--  <td><?php //echo formatearFecha($row->fechaRegistro); ?></td>
         <td><?php //echo formatearFecha($row->fechaActualizacion); ?></td> -->
 
         <td>
-<?php echo form_open_multipart("cliente/modificar"); ?>
+<?php echo form_open_multipart("comercial/modificar"); ?>
 
-<input type="hidden" name="idcliente" value="<?php echo $row->idCliente; ?>">        
+<input type="hidden" name="idcomercial" value="<?php echo $row->idComercial; ?>">        
 <button type="submit" class="btn btn-info"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> EDITAR</button>
 
 <?php echo form_close(); ?>
         </td>
 
         <td> <!-- Eliminacion definitiva----------------->
-<?php echo form_open_multipart("cliente/eliminarbd"); ?>
+<?php echo form_open_multipart("comercial/eliminarbd"); ?>
 
-<input type="hidden" name="idcliente" value="<?php echo $row->idCliente; ?>">
+<input type="hidden" name="idcomercial" value="<?php echo $row->idComercial; ?>">
 <button type="submit" class="btn btn-danger"><i class="fas fa-user"></i> X</button>
 
 <?php echo form_close(); ?>
@@ -103,9 +101,9 @@
         </td>
 
         <td>
-<?php echo form_open_multipart("cliente/deshabilitarbd"); ?>
+<?php echo form_open_multipart("comercial/deshabilitarbd"); ?>
 
-<input type="hidden" name="idcliente" value="<?php echo $row->idCliente; ?>">
+<input type="hidden" name="idcomercial" value="<?php echo $row->idComercial; ?>">
 <button type="submit" class="btn btn-danger"> <i class="fas fa-user"></i>  <i class="far fa-trash-alt"></i> QUITAR</button>
 
 <?php echo form_close(); ?>

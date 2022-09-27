@@ -211,7 +211,7 @@ class Cliente extends CI_Controller {
 			// para atributos de la tabla
 	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);
 	        $this->pdf->Cell(35,5,'NIT/CI','TBLR',0,'L',1);
-	        $this->pdf->Cell(45,5,'CORREO ELECTRONICO','TBLR',0,'L',1);
+	        $this->pdf->Cell(55,5,'CORREO ELECTRONICO','TBLR',0,'L',1);
 	        $this->pdf->Cell(50,5,'RAZON SOCIAL','TBLR',0,'L',1);
 	        $this->pdf->Cell(35,5,'LIMITE CREDITO','TBLR',0,'L',1);
 	        //$this->pdf->Cell(25,5,'TELEFONO','TBLR',0,'L',1);
@@ -234,7 +234,7 @@ class Cliente extends CI_Controller {
 	            
 	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
 	            $this->pdf->Cell(35,5,$NitCi,'TBLR',0,'L',0);
-	            $this->pdf->Cell(45,5,$Correo,'TBLR',0,'L',0);
+	            $this->pdf->Cell(55,5,$Correo,'TBLR',0,'L',0);
 	            $this->pdf->Cell(50,5,$RazonSocial,'TBLR',0,'L',0);
 	            $this->pdf->Cell(35,5,$LimiteCredito,'TBLR',0,'L',0);
 

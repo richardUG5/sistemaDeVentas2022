@@ -137,9 +137,8 @@ class Comercial extends CI_Controller {
 		$data['estado']='0';
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
-		$this->comercial_model->modificarcomercial($idcomercial, $data);	
-
-		redirect('cliente/index','refresh'); // cargamos la listaComercial
+		$this->comercial_model->modificarcomercial($idcomercial, $data);
+		redirect('comercial/index','refresh'); // cargamos la listaComercial
 	}
 	// lista de tiendas deshabilitados
 	public function deshabilitados()
@@ -165,8 +164,7 @@ class Comercial extends CI_Controller {
 		$data['estado']='1';
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
-		$this->comercial_model->modificarcomercial($idcomercial, $data);	
-
+		$this->comercial_model->modificarcomercial($idcomercial, $data);
 		redirect('comercial/deshabilitados','refresh'); // cargamos la listaTiendas	
 	}
 	//-- para reportes  Clase 4-VII-2022  desde aqui-------------------------------
@@ -180,7 +178,7 @@ class Comercial extends CI_Controller {
 	        $this->pdf = new Pdf();
 	        $this->pdf->AddPage('P'); //AddPage('P=hoja horizontal L=Hoja vertical')
 	        $this->pdf->AliasNbPages();
-	        $this->pdf->SetTitle("Lista de comerciales");
+	        $this->pdf->SetTitle("Lista comerciales");
 	        $this->pdf->SetLeftMargin(15);
 	        $this->pdf->SetRightMargin(15);
 	        //$this->pdf->SetFillColor(210,210,210);
@@ -191,7 +189,7 @@ class Comercial extends CI_Controller {
 
 	        $this->pdf->SetFont('Arial','BU',11);
 	        $this->pdf->Cell(10);
-	        $this->pdf->Cell(150,10,'LISTA DE COMERCIALES',0,0,'C',1);
+	        $this->pdf->Cell(150,10,'LISTA COMERCIALES',0,0,'C',1);
 
 	        $this->pdf->Ln(15);
 
@@ -203,7 +201,7 @@ class Comercial extends CI_Controller {
 	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);	        
 	        $this->pdf->Cell(35,5,'NOMBRE','TBLR',0,'L',1);
 	        $this->pdf->Cell(35,5,'TELEFONO','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'DIRECCION','TBLR',0,'L',1);	        
+	        $this->pdf->Cell(70,5,'DIRECCION','TBLR',0,'L',1);	        
 	        $this->pdf->Ln(5); // hace salto de linea
 
 	        $this->pdf->SetFont('Courier','',10); // Letras cursivas del reporte
@@ -220,7 +218,7 @@ class Comercial extends CI_Controller {
 	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);	            
 	            $this->pdf->Cell(35,5,$Nombre,'TBLR',0,'L',0);
 	            $this->pdf->Cell(35,5,$Telefono,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$Direccion,'TBLR',0,'L',0);
+	            $this->pdf->Cell(70,5,$Direccion,'TBLR',0,'L',0);
 	            
 	            $this->pdf->Ln(5); // hace salto de linea
 

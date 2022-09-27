@@ -52,9 +52,8 @@
         <tr bgcolor="#022424" align=center >
           <th scope="col">Nro</th>          
           <th scope="col">UNIDAD MEDIDA</th>
-
-      <!--    <th scope="col">FechaRegistro</th>
-          <th scope="col">FechaActualizacion</th> -->
+          <th scope="col">FechaRegistro</th>
+          <th scope="col">FechaActualizacion</th>
 
           <th scope="col">Modificar</th>
           <th scope="col">Delete_X</th> <!-- Eliminacion definitiva----------------->
@@ -76,8 +75,8 @@
         <!-- ----------------atributo de  bd --->
         <td><?php echo $row->unidadMedida; ?></td> 
 
-      <!--  <td><?php //echo formatearFecha($row->fechaRegistro); ?></td>
-        <td><?php //echo formatearFecha($row->fechaActualizacion); ?></td> -->
+        <td><?php echo formatearFecha($row->fechaRegistro); ?></td>
+        <td><?php echo formatearFecha($row->fechaActualizacion); ?></td>
 
         <td>
 <?php echo form_open_multipart("medida/modificar"); ?>
