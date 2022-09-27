@@ -4,13 +4,13 @@
 
 <div class="row">
   <div class="col-md-12" >
-    <font color="black">
-      <h1 style="background-color:darkcyan;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-cubes"></i> <i class="fas fa-list"></i> LISTA DE MEDIDAS HABILITADOS</h1>
+    <font color="cyan">
+      <h1 style="background-color:#022424;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-cubes"></i> <i class="fas fa-list"></i> LISTA DE MEDIDAS HABILITADOS</h1>
     </font>
   </div>
 </div>
 
-<div class="row" style="background-color:black;">
+<div class="row" style="background-color:#022424;">
   <div class="col-md-2">
     <?php echo form_open_multipart('medida/agregar'); ?>
       <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-cube"></i> <i class="fas fa-edit"></i> AGREGAR MEDIDA</button>
@@ -49,13 +49,13 @@
 
       <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
       <thead>
-        <tr bgcolor="#022424" align=center>
-          <th scope="col">Nro</th>
-          
-          <th scope="col">UNIDAD MEDIDA</th>   
-                    
-          <th scope="col">FechaRegistro</th>
-          <th scope="col">FechaActualizacion</th>
+        <tr bgcolor="#022424" align=center >
+          <th scope="col">Nro</th>          
+          <th scope="col">UNIDAD MEDIDA</th>
+
+      <!--    <th scope="col">FechaRegistro</th>
+          <th scope="col">FechaActualizacion</th> -->
+
           <th scope="col">Modificar</th>
           <th scope="col">Delete_X</th> <!-- Eliminacion definitiva----------------->
           <th scope="col">Eliminar</th>
@@ -71,13 +71,13 @@
   foreach ($medidas->result() as $row)
     {
   ?> <!-- inicio tabla------------------------------->
-    <tr> 
+    <tr th class="text-center"> 
         <th bgcolor="#022424" height="50" width="50" scope="row" ><?php echo $indice; ?></th>
         <!-- ----------------atributo de  bd --->
-        <td><?php echo $row->unidadMedida; ?></td>
-        
-        <td><?php echo formatearFecha($row->fechaRegistro); ?></td>
-        <td><?php echo formatearFecha($row->fechaActualizacion); ?></td>
+        <td><?php echo $row->unidadMedida; ?></td> 
+
+      <!--  <td><?php //echo formatearFecha($row->fechaRegistro); ?></td>
+        <td><?php //echo formatearFecha($row->fechaActualizacion); ?></td> -->
 
         <td>
 <?php echo form_open_multipart("medida/modificar"); ?>

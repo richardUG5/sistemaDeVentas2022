@@ -21,16 +21,6 @@
 
     <div class="row">
         <div class="col-md-4">
-          <label class="col-form-label label-align" for="NOMBRE">NOMBRE:</label>
-        </div>
-
-        <div class="col-md-5">
-            <input type="text" name="Nombre" placeholder="Ingrese nombre producto" class="form-control has-feedback-left" required> <br>
-        </div> 
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
           <label class="col-form-label  label-align" for="DESCRIPCION">DESCRIPCION:</label>
         </div>
 
@@ -51,23 +41,52 @@
 
     <div class="row">
         <div class="col-md-4">
-          <label class="col-form-label label-align" for="UNIDADMEDIDA">UNIDAD MEDIDA:</label>
-        </div>
-
-        <div class="col-md-5">
-            <input type="text" name="UnidadMedida" placeholder="Ingrese unidad medida" class="form-control has-feedback-left"> <br>
-        </div> 
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
           <label class="col-form-label label-align" for="PRECIO">PRECIO:</label>
         </div>
 
         <div class="col-md-5">
             <input type="double" name="Precio" placeholder="Ingrese precio" class="form-control has-feedback-left">
         </div> 
+  </div> <br>
+
+  <!------------ begin --------------->
+    <div class="row">
+        <div class="col-md-4">
+          <label class="col-form-label label-align" for="CATEGORIA">CATEGORÍA:</label>
+        </div>
+
+      <div class="col-md-5">
+        <select name="idCategoria" class="form-control">
+            <option>Seleccione una categoría</option>
+            <?php 
+            foreach($cat->result() as $row)
+            {?>
+                <option value="<?php echo $row->idCategoria;?>"><?php echo $row->nombreCategoria;?></option>
+            <?php
+            }
+            ?>
+        </select>
+      </div> 
     </div><br>
+
+    <div class="row">
+        <div class="col-md-4">
+          <label class="col-form-label label-align" for="MEDIDA">MEDIDA:</label>
+        </div>
+
+      <div class="col-md-5">
+        <select name="idMedida" class="form-control">
+            <option>Seleccione una medida</option>
+            <?php 
+            foreach($med->result() as $mrow)
+            {?>
+                <option value="<?php echo $mrow->idMedida;?>"><?php echo $mrow->unidadMedida;?></option>
+            <?php
+            }
+            ?>
+        </select>
+      </div> 
+    </div><br> <!------------ fin --------------->
 
     </font>
 

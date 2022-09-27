@@ -4,8 +4,8 @@
 
 <div class="row">
   <div class="col-md-12" >
-    <font color="black">
-      <h1 style="background-color:darkcyan;" style="color:teal;" style="text-align:center" align="center"> <i class="fas fa-users"></i> LISTA DE CLIENTES ELIMINADOS</h1>
+    <font color="cyan">
+      <h1 style="background-color:#022424;" style="color:teal;" style="text-align:center" align="center"> <i class="fas fa-users"></i> LISTA DE CLIENTES ELIMINADOS</h1>
     </font>
   </div>
 </div>
@@ -22,10 +22,10 @@
 
       <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
       <thead>
-        <tr>
+        <tr bgcolor="#022424" align=center>
           <th scope="col">Nro</th>
           <th scope="col">Nit/CI</th>
-          <th scope="col">Nombre Cliente</th>
+          <th scope="col">Correo Electronico</th>
           <th scope="col">Razon Social</th>
           <th scope="col">Limite Credito</th>
 
@@ -45,9 +45,9 @@ foreach ($clientes->result() as $row)
 {
   ?>
     <tr>
-        <th scope="row"><?php echo $indice; ?></th>
+        <th bgcolor="#022424" height="50" width="50" scope="row"><?php echo $indice; ?></th>
         <td><?php echo $row->nit_ci; ?></td>
-        <td><?php echo $row->nombreCliente; ?></td>
+        <td><?php echo $row->correoElectronico; ?></td>
         <td><?php echo $row->razonSocial; ?></td>
         <td><?php echo $row->limiteCredito; ?></td>
 

@@ -4,13 +4,13 @@
 
 <div class="row">
   <div class="col-md-12" >
-    <font color="black">
-      <h1 style="background-color:darkcyan;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-users"></i> <i class="fas fa-list"></i> LISTA DE CLIENTES HABILITADOS</h1>
+    <font color="cyan">
+      <h1 style="background-color:#022424;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-users"></i> <i class="fas fa-list"></i> LISTA DE CLIENTES HABILITADOS</h1>
     </font>
   </div>
 </div>
 
-<div class="row" style="background-color:black;">
+<div class="row" style="background-color:#022424;">
   <div class="col-md-2">
     <?php echo form_open_multipart('cliente/agregar'); ?>
       <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> AGREGAR CLIENTE</button>
@@ -56,8 +56,8 @@
           <th scope="col">RAZON SOCIAL</th>
           <th scope="col">LIMITE CREDITO</th>
           
-          <th scope="col">FechaRegistro</th>
-          <th scope="col">FechaActualizacion</th>
+       <!--   <th scope="col">FechaRegistro</th>
+          <th scope="col">FechaActualizacion</th> -->
           <th scope="col">Modificar</th>
           <th scope="col">Delete_X</th> <!-- Eliminacion definitiva----------------->
           <th scope="col">Eliminar</th>
@@ -73,15 +73,15 @@
   foreach ($clientes->result() as $row)
     {
   ?> <!-- inicio tabla------------------------------->
-    <tr> <!-- atributo de  bd --->
+    <tr th class="text-center"> <!-- atributo de  bd --->
         <th bgcolor="#022424" scope="row"><?php echo $indice; ?></th>
         <td><?php echo $row->nit_ci; ?></td>
-        <td><?php echo $row->nombreCliente; ?></td>
+        <td><?php echo $row->correoElectronico; ?></td>
         <td><?php echo $row->razonSocial; ?></td>
         <td><?php echo $row->limiteCredito; ?></td>
 
-        <td><?php echo formatearFecha($row->fechaRegistro); ?></td>
-        <td><?php echo formatearFecha($row->fechaActualizacion); ?></td>
+      <!--  <td><?php //echo formatearFecha($row->fechaRegistro); ?></td>
+        <td><?php //echo formatearFecha($row->fechaActualizacion); ?></td> -->
 
         <td>
 <?php echo form_open_multipart("cliente/modificar"); ?>

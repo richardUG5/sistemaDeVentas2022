@@ -201,7 +201,7 @@ class Categoria extends CI_Controller {
 	        $lista=$lista->result();
 	                        
 	        $this->pdf = new Pdf();
-	        $this->pdf->AddPage('P'); //AddPage('P=hoja horizontal L=Hoja vertical')
+	        $this->pdf->AddPage('P'); //AddPage('L=hoja horizontal P=Hoja vertical')
 	        $this->pdf->AliasNbPages();
 	        $this->pdf->SetTitle("Lista de categorias");
 	        $this->pdf->SetLeftMargin(15);

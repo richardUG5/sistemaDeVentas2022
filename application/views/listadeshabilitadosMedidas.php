@@ -4,10 +4,10 @@
 
 <div class="row">
   <div class="col-md-12" >
-    <font color="black">
-      <h1 style="background-color:darkcyan;" style="color:teal;" style="text-align:center" align="center"> <i class="fas fa-cubes"></i> LISTA DE MEDIDAS ELIMINADOS</h1>
+    <font color="cyan">
+      <h1 style="background-color:#022424;" style="color:teal;" style="text-align:center" align="center"> <i class="fas fa-cubes"></i> LISTA DE MEDIDAS ELIMINADOS</h1>
     </font>
-  </div>
+  </div> 
 </div>
 
 <div class="row" style="background-color:white;">
@@ -22,11 +22,9 @@
 
       <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
       <thead>
-        <tr>
-          <th scope="col">Nro</th>
-          
-          <th scope="col">Unidad Medida</th>
-          
+        <tr bgcolor="#022424" align=center>
+          <th scope="col">Nro</th>          
+          <th scope="col">Unidad Medida</th>          
           <th scope="col">FechaRegistro</th>
           <th scope="col">FechaActualizacion</th>          
           <th scope="col">Habilitar</th>
@@ -43,10 +41,8 @@ foreach ($medidas->result() as $row)
 {
   ?>
     <tr>
-        <th scope="row"><?php echo $indice; ?></th>
-        
-        <td><?php echo $row->unidadMedida; ?></td>
-        
+        <th bgcolor="#022424" height="50" width="50" scope="row"><?php echo $indice; ?></th>        
+        <td><?php echo $row->unidadMedida; ?></td>        
         <td><?php echo formatearFecha($row->fechaRegistro); ?></td>
         <td><?php echo formatearFecha($row->fechaActualizacion); ?></td>              
 

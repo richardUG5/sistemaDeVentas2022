@@ -9,8 +9,8 @@ class Usuario_model extends CI_Model {
         $this->db->select('*'); //select ('idUsuario,login,tipo')
         $this->db->from('usuario'); //tabla
         $this->db->where('login',$login);
-        $this->db->where('password',$password); // operador AND
-        /*$this->db->where('nota<=',61);filtro PARA ESTUDIANTES CON NOTA MENOR A 61
+        $this->db->where('password',$password); // en esta linea se usa operador AND
+        /*$this->db->where('nota<=',61);  ----filtro PARA ESTUDIANTES CON NOTA MENOR A 61
         $consulta="SELECT FROM usuario WHERE usuario='$usuario' and contraseña='$contraseña'" */ 
         return $this->db->get(); //devolucion del resultado de la consulta
 	}
@@ -36,7 +36,7 @@ class Usuario_model extends CI_Model {
     	$data2['idEmpleado']=$idEmpleado;
     	$this->db->insert('venta',$data2);
 
-    	$this->db->trans_complete(); // transaccion completada
+    	$this->db->trans_complete(); // transaccion completada con exito
 
     	/* // manejo de errores
     	if($this->db->trans_status()===FALSE)

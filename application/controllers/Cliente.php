@@ -54,7 +54,7 @@ class Cliente extends CI_Controller {
 	{
 		//-----BDD tabla-------formularioCliente.php
 		$data['nit_ci']=mb_strtoupper($_POST['Nit_Ci'],'UTF-8');
-		$data['nombreCliente']=mb_strtoupper($_POST['NombreCliente'],'UTF-8');
+		$data['correoElectronico']=$_POST['Correo'];
 		$data['razonSocial']=mb_strtoupper($_POST['RazonSocial'],'UTF-8');
 		$data['limiteCredito']=$_POST['LimiteCredito'];
 		
@@ -127,7 +127,7 @@ class Cliente extends CI_Controller {
 		$idcliente=$_POST['idcliente'];
 		//-----BDD tabla-------formularioCliente.php
 		$data['nit_ci']=mb_strtoupper($_POST['Nit_Ci'],'UTF-8');
-		$data['nombreCliente']=mb_strtoupper($_POST['NombreCliente'],'UTF-8'); 
+		$data['correoElectronico']=$_POST['Correo']; 
 		$data['razonSocial']=mb_strtoupper($_POST['RazonSocial'],'UTF-8');
 		$data['limiteCredito']=$_POST['LimiteCredito']; 
 		//$data['fechaNacimiento']=$_POST['FechaNac']; 
@@ -211,9 +211,9 @@ class Cliente extends CI_Controller {
 			// para atributos de la tabla
 	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);
 	        $this->pdf->Cell(35,5,'NIT/CI','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'NOMBRE','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'RAZONSOCIAL','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'LIMITECREDITO','TBLR',0,'L',1);
+	        $this->pdf->Cell(45,5,'CORREO ELECTRONICO','TBLR',0,'L',1);
+	        $this->pdf->Cell(50,5,'RAZON SOCIAL','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'LIMITE CREDITO','TBLR',0,'L',1);
 	        //$this->pdf->Cell(25,5,'TELEFONO','TBLR',0,'L',1);
 	        //$this->pdf->Cell(35,5,'CARGO','TBLR',0,'L',1);
 	        $this->pdf->Ln(5); // hace salto de linea
@@ -225,7 +225,7 @@ class Cliente extends CI_Controller {
 	        foreach($lista as $row) 
 	        {	// Variable -----BD------
 	            $NitCi=$row->nit_ci;
-	            $Nombre=$row->nombreCliente;
+	            $Correo=$row->correoElectronico;
 	            $RazonSocial=$row->razonSocial;
 	            $LimiteCredito=$row->limiteCredito;
 	            //$Fecha_Nac=$row->fechaNacimiento;
@@ -234,8 +234,8 @@ class Cliente extends CI_Controller {
 	            
 	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
 	            $this->pdf->Cell(35,5,$NitCi,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$Nombre,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$RazonSocial,'TBLR',0,'L',0);
+	            $this->pdf->Cell(45,5,$Correo,'TBLR',0,'L',0);
+	            $this->pdf->Cell(50,5,$RazonSocial,'TBLR',0,'L',0);
 	            $this->pdf->Cell(35,5,$LimiteCredito,'TBLR',0,'L',0);
 
 	            //$this->pdf->Cell(27,5,$Fecha_Nac,'TBLR',0,'L',0);

@@ -32,11 +32,11 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label class="col-form-label  label-align" for="PRIMERPELLIDO">NOMBRE CLIENTE:</label>
+        <label class="col-form-label  label-align" for="CORREOELECTRONICO">CORREO ELECTRONICO:</label>
       </div>
 
       <div class="col-md-5">
-        <input type="text" name="NombreCliente" placeholder="Ingrese su nombre" class="form-control has-feedback-left" required> <br>
+        <input type="text" name="Correo" placeholder="Ingrese su correo" class="form-control has-feedback-left"> <br>
       </div> 
     </div>
 
@@ -46,7 +46,7 @@
       </div>
 
       <div class="col-md-5">
-        <input type="text" name="RazonSocial" placeholder="Ingrese su razon social" class="form-control has-feedback-left"> <br>
+        <input type="text" name="RazonSocial" placeholder="Ingrese su razon social" class="form-control has-feedback-left" required> <br>
       </div> 
     </div>
 
@@ -56,7 +56,7 @@
       </div>
 
       <div class="col-md-5">
-        <input type="double" name="LimiteCredito" placeholder="Ingrese su limite de credito" class="form-control has-feedback-left" required> <br>
+        <input type="double" name="LimiteCredito" placeholder="Ingrese su limite de credito" class="form-control has-feedback-left"> <br>
       </div> 
     </div> <br> 
 

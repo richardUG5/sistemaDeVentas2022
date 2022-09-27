@@ -15,7 +15,7 @@
 <div class="container" style="background-color:darkcyan;" style="color:darkcyan;" style="text-align:center">
  
 <?php
-// llevar a un helper recomendable por el ing.
+// llevar a un helper lo mas recomendable por el ing.
   switch ($msg) 
   {
     case '1':
@@ -53,8 +53,6 @@
     <input type="password" class="form-control" name="password" placeholder="Ingrese su password" required style="background-color:#BDC5C5;" style="color:navajowhite;" style="text-align:center" > <i class="fas fa-dollar-sign"></i>
 
   </div>
-
-<!--   <button class="w-100 btn btn-primary" type="submit">INGRESAR</button>   -->
 
   <div class="py-3 text-center" style="background-color:darkcyan;" style="color:darkcyan;" style="text-align:center">
     <?php echo form_open_multipart('empleado/agregar'); ?>

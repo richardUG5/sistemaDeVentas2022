@@ -9,7 +9,7 @@ class Usuarios extends CI_Controller {
 
 		if ($this->session->userdata('login')) 
 		{
-			// El user ya esta logueado
+			// El usuario ya esta logueado
             redirect('usuarios/panel','refresh');
 		}
 		else
@@ -29,13 +29,13 @@ class Usuarios extends CI_Controller {
 
         if ($consulta->num_rows()>0) // si la cantidad de filas es mayor a cero
             {
-                // Tenemos una validacion efectiva
+                // Tenemos una validacion efectiva o exitosa
                 foreach ($consulta->result() as $row) 
                 {
                     $this->session->set_userdata('idusuario',$row->idUsuario);
                     $this->session->set_userdata('login',$row->login); // -----vista login
                     $this->session->set_userdata('tipo',$row->tipo);
-                    redirect('Usuarios/panel','refresh'); //redireccionamos volvi u en mayuscula
+                    redirect('Usuarios/panel','refresh'); //redireccionamos ------ volvi u en mayuscula
                 }                        
             }
             else
@@ -69,7 +69,7 @@ class Usuarios extends CI_Controller {
 
         public function logout()
         {
-               $this->session->sess_destroy(); // destruimos la session              
+               $this->session->sess_destroy(); // destruimos la session o  cerramos sesion            
                redirect('usuarios/index/1','refresh');               
         }
 

@@ -11,7 +11,7 @@ class Producto extends CI_Controller {
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listaP',$data);		// ----- aqui
+		$this->load->view('listaP',$data);
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 
@@ -21,10 +21,16 @@ class Producto extends CI_Controller {
 	}
 	public function agregar()
 	{
+		$lista=$this->categoria_model->listaCategorias();
+		$data['cat']=$lista;
+
+		$listam=$this->medida_model->listaMedidas();
+		$data['med']=$listam;
+
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formularioP');		
+		$this->load->view('formularioP',$data);		
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*$this->load->view('inc/header');
@@ -35,11 +41,11 @@ class Producto extends CI_Controller {
 	public function agregarbd()
 	{
 		//-----BDD tabla-------formularioP.php
-		$data['nombre']=mb_strtoupper($_POST['Nombre'], 'UTF-8');
 		$data['descripcion']=mb_strtoupper($_POST['Descripcion'], 'UTF-8');
 		$data['color']=mb_strtoupper($_POST['Color'], 'UTF-8');
-		$data['unidadMedida']=$_POST['UnidadMedida'];
-		$data['precio']=$_POST['Precio'];
+		$data['precioBase']=$_POST['Precio'];
+		$data['idCategoria']=$_POST['idCategoria'];
+		$data['idMedida']=$_POST['idMedida'];
 
 		//$data['fechaRegistro']=$_POST['FechaRegistro'];
 		//$data['fechaActualizacion']=$_POST['FechaActualizacion'];
@@ -64,6 +70,12 @@ class Producto extends CI_Controller {
 		$idproducto=$_POST['idproducto'];		
 		$data['infoproducto']=$this->producto_model->recuperarproducto($idproducto);
 
+		$lista=$this->categoria_model->listaCategorias();
+		$data['cat']=$lista;
+
+		$listam=$this->medida_model->listaMedidas();
+		$data['med']=$listam;
+
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
@@ -79,13 +91,12 @@ class Producto extends CI_Controller {
 	public function modificarbd()
 	{
 		$idproducto=$_POST['idproducto'];
-		//-----BDD tabla-------formulario.php
-		$data['nombre']=mb_strtoupper($_POST['Nombre'], 'UTF-8');
+		//-----BDD tabla-------formulario.php		
 		$data['descripcion']=mb_strtoupper($_POST['Descripcion'], 'UTF-8');
 		$data['color']=mb_strtoupper($_POST['Color'], 'UTF-8');
-		$data['unidadMedida']=$_POST['UnidadMedida'];
-		$data['precio']=$_POST['Precio'];
-		//$data['fechaRegistro']=$_POST['FechaRegistro'];
+		$data['precioBase']=$_POST['Precio'];			
+		$data['idCategoria']=$_POST['idCategoria'];
+		$data['idMedida']=$_POST['idMedida'];
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 
 		$this->producto_model->modificarproducto($idproducto, $data);	
@@ -133,8 +144,7 @@ class Producto extends CI_Controller {
 
 		redirect('producto/deshabilitados','refresh'); // cargamos la lista	
 	}
-
-	//-- para reportes  Clase 4-VII-2022  desde aqui-------------------------------
+	//---------------para reportes  desde aqui-------------------------------
 	public function reportepdf()
 	{
 	    if($this->session->userdata('tipo')=='admin')
@@ -165,13 +175,13 @@ class Producto extends CI_Controller {
 
 /* cell(ancho,alto,impresion, borde (0=sin borde, 1=borde total y TBLR=TopBottomLeftRight), ln)*/
 			// para atributos de la tabla
-	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);	        
-	        $this->pdf->Cell(35,5,'NOMBRE','TBLR',0,'L',1);
+	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);	        	        
 	        $this->pdf->Cell(35,5,'DESCRIPCION','TBLR',0,'L',1);
 	        $this->pdf->Cell(35,5,'COLOR','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'UNIDADMEDIDA','TBLR',0,'L',1);
 	        $this->pdf->Cell(25,5,'PRECIO','TBLR',0,'L',1);
-	        //$this->pdf->Cell(35,5,'CARGO','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'CATEGORIA','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'UNIDAD MEDIDA','TBLR',0,'L',1);
+	        
 	        $this->pdf->Ln(5); // hace salto de linea
 
 	        $this->pdf->SetFont('Courier','',10); // Letras cursivas del reporte
@@ -179,26 +189,20 @@ class Producto extends CI_Controller {
 	        $num=1;
 
 	        foreach($lista as $row) 
-	        {	// Variable -----BD------
-	            $Nombre=$row->nombre;
+	        {	// Variable -----------BD------	            
 	            $Descripcion=$row->descripcion;
 	            $Color=$row->color;
-	            $UnidadMedida=$row->unidadMedida;
-	            $Precio=$row->precio;
-
-	            //$Telefono=$row->telefono;
-	            //$Cargo=$row->cargo;
+	            $Precio=$row->precioBase;
+	            $Categoria=$row->nombreCategoria;
+	            $Medida=$row->unidadMedida;
 	            
-	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$Nombre,'TBLR',0,'L',0);
+	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);	            
 	            $this->pdf->Cell(35,5,$Descripcion,'TBLR',0,'L',0);
 	            $this->pdf->Cell(35,5,$Color,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$UnidadMedida,'TBLR',0,'L',0);
 	            $this->pdf->Cell(25,5,$Precio,'TBLR',0,'L',0);
-
-	            //$this->pdf->Cell(25,5,$Telefono,'TBLR',0,'L',0);
-	            //$this->pdf->Cell(35,5,$Cargo,'TBLR',0,'L',0);
-	            
+	            $this->pdf->Cell(35,5,$Categoria,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Medida,'TBLR',0,'L',0);
+	            	            
 	            $this->pdf->Ln(5); // hace salto de linea
 
 	            $num++;
@@ -211,5 +215,5 @@ class Producto extends CI_Controller {
 	        redirect('usuarios/panel','refresh');
 	    }
 	} 
-	// Clase 4-VII-2022  hasta aqui-------------------------------
+	// ---------- hasta aqui-------------------------------
 }

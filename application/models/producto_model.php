@@ -4,9 +4,13 @@ class producto_model extends CI_Model {
 	
 	public function listaproductos()
 	{
-		$this->db->select('*'); // select *
-		$this->db->from('producto'); // tabla
-		$this->db->where('estado','1');
+
+		$this->db->select('p.idProducto,p.descripcion,p.color,p.precioBase,p.estado,p.idCategoria,p.idMedida,c.idCategoria
+		,c.nombreCategoria,m.idMedida,m.unidadMedida'); // select *'); // select *
+		$this->db->from('producto p'); // tabla
+		$this->db->where('p.estado','1');
+		$this->db->join('categoria c','p.idCategoria=c.idCategoria');
+		$this->db->join('medida m','p.idMedida=m.idMedida');
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
 
@@ -23,22 +27,19 @@ class producto_model extends CI_Model {
 
 	public function recuperarproducto($idproducto)
 	{
-		$this->db->select('*'); // select *
-		$this->db->from('producto'); // tabla
-		$this->db->where('idProducto',$idproducto); 
-		
+		$this->db->select('p.idProducto,p.descripcion,p.color,p.precioBase,p.idCategoria,p.idMedida,c.idCategoria
+		,c.nombreCategoria,m.idMedida,m.unidadMedida'); // select *
+		$this->db->from('producto p');
+		$this->db->where('p.idProducto',$idproducto); 
+		$this->db->join('categoria c','p.idCategoria=c.idCategoria');
+		$this->db->join('medida m','p.idMedida=m.idMedida');
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
 
 	public function modificarproducto($idproducto, $data)
-	{
-		
-		$this->db->where('idProducto',$idproducto);
-
-		//$this->db->UPDATE productos SET fechaActualizacion=CURRENT_TIMESTAMP; 
-		
+	{		
+		$this->db->where('idProducto',$idproducto);		
 		$this->db->update('producto',$data);
-
 	}
 
 	public function listaproductosdeshabilitados()

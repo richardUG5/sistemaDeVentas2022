@@ -38,11 +38,11 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label class="col-form-label label-align" for="NOMBRECLIENTE">NOMBRE CLIENTE:</label>
+        <label class="col-form-label label-align" for="CORREO">CORREO ELECTRONICO:</label>
       </div>
 
       <div class="col-md-5">
-          <input type="text" name="NombreCliente"  value="<?php echo $row->nombreCliente; ?>" 
+          <input type="text" name="Correo"  value="<?php echo $row->correoElectronico; ?>" 
             class="form-control has-feedback-left">
       </div> 
     </div> <br>

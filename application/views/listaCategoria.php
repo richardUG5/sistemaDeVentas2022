@@ -4,13 +4,13 @@
 
 <div class="row">
   <div class="col-md-12" >
-    <font color="black">
-      <h1 style="background-color:darkcyan;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-cubes"></i> <i class="fas fa-list"></i> LISTA DE CATEGORIAS HABILITADOS</h1>
+    <font color="cyan">
+      <h1 style="background-color:#022424;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-cubes"></i> <i class="fas fa-list"></i> LISTA DE CATEGORIAS HABILITADOS</h1>
     </font>
   </div>
 </div>
 
-<div class="row" style="background-color:black;">
+<div class="row" style="background-color:#022424;">
   <div class="col-md-2">
     <?php echo form_open_multipart('categoria/agregar'); ?>
       <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-cube"></i> <i class="fas fa-edit"></i> AGREGAR CATEGORIA</button>
@@ -71,7 +71,7 @@
   foreach ($categorias->result() as $row)
     {
   ?> <!-- inicio tabla------------------------------->
-    <tr> 
+    <tr th class="text-center"> 
         <th bgcolor="#022424" height="50" width="50" scope="row" ><?php echo $indice; ?></th>
         <!-- ----------------atributo de  bd --->
         <td><?php echo $row->nombreCategoria; ?></td>
