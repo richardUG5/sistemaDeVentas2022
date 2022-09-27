@@ -38,7 +38,7 @@
 
   <div class="col-md-2">
     <?php echo form_open_multipart('usuarios/logout'); ?> <!-- retorna a login -->
-      <button type="submit" name="buton3" class="btn btn-outline-success btn-block"> <i class="fas fa-user"></i> CERRAR SESSION</button>
+      <button type="submit" name="buton3" class="btn btn-outline-success btn-block"> <i class="fas fa-user"></i> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> CERRAR SESSION</button>
     <?php echo form_close(); ?>
   </div>
 
