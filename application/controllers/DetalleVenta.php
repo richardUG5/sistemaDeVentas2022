@@ -1,17 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Producto extends CI_Controller {
+class DetalleVenta extends CI_Controller {
 	
 	public function index()
 	{
-		$lista=$this->producto_model->listaproductos();
-		$data['productos']=$lista;
+		$lista=$this->detalleventa_model->listadetalleventas();
+		$data['detalleventas']=$lista;
 
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listaP',$data);
+		$this->load->view('listaDetalleVenta',$data);
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 
@@ -21,16 +21,16 @@ class Producto extends CI_Controller {
 	}
 	public function agregar()
 	{
-		$lista=$this->categoria_model->listaCategorias();
-		$data['cat']=$lista;
+		$lista=$this->venta_model->listaVentas(); // pediente
+		$data['ven']=$lista;
 
-		$listam=$this->medida_model->listaMedidas();
-		$data['med']=$listam;
+		$listau=$this->producto_model->listaProductos(); // pendiente
+		$data['pro']=$listap;
 
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formularioP',$data);		
+		$this->load->view('formularioDetalleVenta',$data);		
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		/*$this->load->view('inc/header');
@@ -40,44 +40,34 @@ class Producto extends CI_Controller {
 
 	public function agregarbd()
 	{
-		//-----BDD tabla-------formularioP.php
-		$data['descripcion']=mb_strtoupper($_POST['Descripcion'], 'UTF-8');
-		$data['color']=mb_strtoupper($_POST['Color'], 'UTF-8');
-		$data['precioBase']=$_POST['Precio'];
-		$data['idCategoria']=$_POST['idCategoria'];
-		$data['idMedida']=$_POST['idMedida'];
+		//-----BDD tabla-------formularioP.php		
+		$data['idVenta']=$_POST['idVenta'];
+		$data['idProducto']=$_POST['idProducto'];
+		$data['cantidad']=$_POST['Cantidad'];
+		$data['precioUnitario']=$_POST['Precio'];		
 
 		//$data['fechaRegistro']=$_POST['FechaRegistro'];
 		//$data['fechaActualizacion']=$_POST['FechaActualizacion'];
 
-		$lista=$this->producto_model->agregarproducto($data);
-		redirect('producto/index','refresh');
+		$lista=$this->venta_model->agregarventa($data);
+		redirect('venta/index','refresh');
 	}
-/* para eliminar definitivamente-------------------------------------
-	public function eliminarbd()
-	{		//-----BDD tabla-------formulario.php
-		$idproducto=$_POST['idproducto'];
-		
-		$this->producto_model->eliminarproducto($idproducto);
-		redirect('producto/index','refresh');
-	}
-End ---------------------------------------------------------------------*/
 	public function modificar()
 	{
 		//-----BDD tabla-------formulario.php
-		$idproducto=$_POST['idproducto'];		
-		$data['infoproducto']=$this->producto_model->recuperarproducto($idproducto);
+		$idventa=$_POST['idventa'];		
+		$data['infoventa']=$this->venta_model->recuperarventa($idventa);
 
-		$lista=$this->categoria_model->listaCategorias();
-		$data['cat']=$lista;
+		$lista=$this->cliente_model->listaClientes();
+		$data['cli']=$lista;
 
-		$listam=$this->medida_model->listaMedidas();
-		$data['med']=$listam;
+		$listau=$this->usuario_model->listaUsuarios();
+		$data['usu']=$listau;
 
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('formulariomodificarP',$data);		
+		$this->load->view('formulariomodificarVenta',$data);		
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 		
@@ -88,41 +78,40 @@ End ---------------------------------------------------------------------*/
 
 	public function modificarbd()
 	{
-		$idproducto=$_POST['idproducto'];
-		//-----BDD tabla-------formulario.php		
-		$data['descripcion']=mb_strtoupper($_POST['Descripcion'], 'UTF-8');
-		$data['color']=mb_strtoupper($_POST['Color'], 'UTF-8');
-		$data['precioBase']=$_POST['Precio'];			
-		$data['idCategoria']=$_POST['idCategoria'];
-		$data['idMedida']=$_POST['idMedida'];
+		$idventa=$_POST['idventa'];
+		//-----BDD tabla-------formulario.php
+		$data['fechaVenta']=$_POST['Fecha'];
+		$data['total']=$_POST['Total'];
+		$data['idCliente']=$_POST['idCliente'];
+		$data['idUsuario']=$_POST['idUsuario'];
+
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 
-		$this->producto_model->modificarproducto($idproducto, $data);	
+		$this->venta_model->modificarventa($idventa, $data);	
 
-		redirect('producto/index','refresh'); // cargamos la lista	
+		redirect('venta/index','refresh'); // cargamos la lista	
 	}
-
 	public function deshabilitarbd()
 	{
-		$idproducto=$_POST['idproducto'];
+		$idventa=$_POST['idventa'];
 		//-----BDD tabla-------formulario.php
 		$data['estado']='0';
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
-		$this->producto_model->modificarproducto($idproducto, $data);	
+		$this->venta_model->modificarventa($idventa, $data);	
 
-		redirect('producto/index','refresh'); // cargamos la lista	
+		redirect('venta/index','refresh'); // cargamos la lista	
 	}
 	// lista de productos deshabilitados
 	public function deshabilitados()
 	{
-		$lista=$this->producto_model->listaproductosdeshabilitados();
-		$data['productos']=$lista; // array relacional de tabla productos
+		$lista=$this->venta_model->listaventasdeshabilitados();
+		$data['ventas']=$lista; // array relacional de tabla productos
 
 		$this->load->view('inc/headersbadmin2');
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('listadeshabilitadosP',$data);		
+		$this->load->view('listadeshabilitadosVentas',$data);		
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2');
 
@@ -133,27 +122,27 @@ End ---------------------------------------------------------------------*/
 
 	public function habilitarbd()
 	{
-		$idproducto=$_POST['idproducto'];
+		$idventa=$_POST['idventa'];
 		//-----BDD tabla-------formulario.php
 		$data['estado']='1';
 		$data['fechaActualizacion']=date("Y-m-d (H:i:s)");
 		
-		$this->producto_model->modificarproducto($idproducto, $data);	
+		$this->venta_model->modificarventa($idventa, $data);	
 
-		redirect('producto/deshabilitados','refresh'); // cargamos la lista	
+		redirect('venta/deshabilitados','refresh'); // cargamos la lista	
 	}
 	//---------------para reportes  desde aqui-------------------------------
 	public function reportepdf()
 	{
 	    if($this->session->userdata('tipo')=='admin')
 	    {
-	        $lista=$this->producto_model->listaproductos();
+	        $lista=$this->venta_model->listaventas();
 	        $lista=$lista->result();
 	                        
 	        $this->pdf = new Pdf();
 	        $this->pdf->AddPage('P'); //AddPage('P=hoja horizontal L=Hoja vertical')
 	        $this->pdf->AliasNbPages();
-	        $this->pdf->SetTitle("Lista de productos");
+	        $this->pdf->SetTitle("Lista de ventas");
 	        $this->pdf->SetLeftMargin(15);
 	        $this->pdf->SetRightMargin(15);
 	        //$this->pdf->SetFillColor(210,210,210);
@@ -164,7 +153,7 @@ End ---------------------------------------------------------------------*/
 
 	        $this->pdf->SetFont('Arial','BU',11);
 	        $this->pdf->Cell(10);
-	        $this->pdf->Cell(150,10,'LISTA DE PRODUCTOS',0,0,'C',1);
+	        $this->pdf->Cell(150,10,'LISTA DE VENTAS',0,0,'C',1);
 
 	        $this->pdf->Ln(15);
 
@@ -173,12 +162,11 @@ End ---------------------------------------------------------------------*/
 
 /* cell(ancho,alto,impresion, borde (0=sin borde, 1=borde total y TBLR=TopBottomLeftRight), ln)*/
 			// para atributos de la tabla
-	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);	        	        
-	        $this->pdf->Cell(35,5,'DESCRIPCION','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'COLOR','TBLR',0,'L',1);
-	        $this->pdf->Cell(25,5,'PRECIO','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'CATEGORIA','TBLR',0,'L',1);
-	        $this->pdf->Cell(35,5,'UNIDAD MEDIDA','TBLR',0,'L',1);
+	        $this->pdf->Cell(10,5,'Nro','TBLR',0,'L',1);	        	        	        
+	        $this->pdf->Cell(35,5,'FECHA VENTA','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'TOTAL','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'CLIENTE','TBLR',0,'L',1);
+	        $this->pdf->Cell(35,5,'USUARIO','TBLR',0,'L',1);
 	        
 	        $this->pdf->Ln(5); // hace salto de linea
 
@@ -187,19 +175,17 @@ End ---------------------------------------------------------------------*/
 	        $num=1;
 
 	        foreach($lista as $row) 
-	        {	// Variable -----------BD------	            
-	            $Descripcion=$row->descripcion;
-	            $Color=$row->color;
-	            $Precio=$row->precioBase;
-	            $Categoria=$row->nombreCategoria;
-	            $Medida=$row->unidadMedida;
+	        {	// Variable -----BD-------------------------------
+	            $Fecha=$row->fechaVenta;
+	            $Total=$row->total;
+	            $Cliente=$row->nit_ci;
+	            $Usuario=$row->nombres;
 	            
 	            $this->pdf->Cell(10,5,$num,'TBLR',0,'L',0);	            
-	            $this->pdf->Cell(35,5,$Descripcion,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$Color,'TBLR',0,'L',0);
-	            $this->pdf->Cell(25,5,$Precio,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$Categoria,'TBLR',0,'L',0);
-	            $this->pdf->Cell(35,5,$Medida,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Fecha,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Total,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Cliente,'TBLR',0,'L',0);
+	            $this->pdf->Cell(35,5,$Usuario,'TBLR',0,'L',0);
 	            	            
 	            $this->pdf->Ln(5); // hace salto de linea
 

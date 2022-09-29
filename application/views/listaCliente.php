@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-12" >
     <font color="cyan">
-      <h1 style="background-color:#022424;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-users"></i> <i class="fas fa-list"></i> LISTA DE CLIENTES HABILITADOS</h1>
+      <h1 style="background-color:#022424;" style="color:darkcyan;" style="text-align:center" align="center"><i class="fas fa-users"></i> <i class="fas fa-child fa-fw"></i> &nbsp;LISTA DE CLIENTES HABILITADOS</h1>
     </font>
   </div>
 </div>
@@ -13,7 +13,7 @@
 <div class="row" style="background-color:#022424;">
   <div class="col-md-2">
     <?php echo form_open_multipart('cliente/agregar'); ?>
-      <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> AGREGAR CLIENTE</button>
+      <button type="submit" name="agregar" class="btn btn-outline-warning btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> NUEVO CLIENTE</button>
     <?php echo form_close(); ?>
   </div>
 
@@ -38,7 +38,7 @@
 
   <div class="col-md-2">
     <?php echo form_open_multipart('usuarios/logout'); ?> <!-- retorna a login -->
-      <button type="submit" name="buton3" class="btn btn-outline-success btn-block"> <i class="fas fa-user"></i> CERRAR SESSION</button>
+      <button type="submit" name="buton3" class="btn btn-outline-success btn-block"> <i class="fas fa-user"></i> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> CERRAR SESSION</button>
     <?php echo form_close(); ?>
   </div>
 
@@ -59,7 +59,7 @@
        <!--   <th scope="col">FechaRegistro</th>
           <th scope="col">FechaActualizacion</th> -->
           <th scope="col">Modificar</th>
-          <th scope="col">Delete_X</th> <!-- Eliminacion definitiva----------------->
+       <!--   <th scope="col">Delete_X</th>  Eliminacion definitiva----------------->
           <th scope="col">Eliminar</th>
         </tr>
       </thead>
@@ -92,15 +92,15 @@
 <?php echo form_close(); ?>
         </td>
 
-        <td> <!-- Eliminacion definitiva----------------->
-<?php echo form_open_multipart("cliente/eliminarbd"); ?>
+<!--        <td> -- Eliminacion definitiva---------------
+<?php //echo form_open_multipart("cliente/eliminarbd"); ?>
 
 <input type="hidden" name="idcliente" value="<?php echo $row->idCliente; ?>">
 <button type="submit" class="btn btn-danger"><i class="fas fa-user"></i> X</button>
 
-<?php echo form_close(); ?>
+<?php //echo form_close(); ?>
 
-        </td>
+        </td>   -->
 
         <td>
 <?php echo form_open_multipart("cliente/deshabilitarbd"); ?>

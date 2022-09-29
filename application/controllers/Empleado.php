@@ -83,17 +83,17 @@ class Empleado extends CI_Controller {
 		redirect('empleado/index','refresh');
 	}
 
-// para transaccion --------------------
-
+// Begin --------------- para transaccion ----------------------------------------------------------
+/*
 	public function vender()
 	{
 		//-----BDD tabla-------formulario.php
 		$data['infoclientes']=$this->usuario_model->listaClientes();
-
+		
 		$this->load->view('inc/headersbadmin2'); // archivos de cabecera
 		$this->load->view('inc/sidebarsbadmin2');		
 		$this->load->view('inc/topbarsbadmin2');
-		$this->load->view('venderform',$data);		  // contenido
+		$this->load->view('venderform',$data);		  // formulario para venta
 		$this->load->view('inc/creditossbadmin2'); 		
 		$this->load->view('inc/footersbadmin2'); // archivos de pie
 
@@ -102,6 +102,7 @@ class Empleado extends CI_Controller {
 	public function venderbd()
 	{
 		//-----BDD tabla-------formulario.php
+
 		$data['nombre']=$_POST['Nombre'];
 		//$data['apellidos']=$_POST['Apellidos'];
 		$data['telefono']=$_POST['Telefono'];
@@ -112,7 +113,7 @@ class Empleado extends CI_Controller {
 
 		redirect('empleado/index','refresh');
 	}
-
+*/
 // termina aqui transaccion --------------------------
 
 	public function modificar()

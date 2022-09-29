@@ -94,12 +94,10 @@
 
 </body>
 
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-dark">
     <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <font color="orange">
-                <span>Realizado por: Richard Ugarte Garcia  &copy; SISTEMA WEB VENTAS 2022</span>
-            </font>
+        <div class="copyright text-center my-auto" style="background-color: dark;">
+            <span>Realizado por: Richard Ugarte Garcia  &copy; SISTEMA WEB VENTAS 2022</span>
         </div>
     </div>
 </footer> 

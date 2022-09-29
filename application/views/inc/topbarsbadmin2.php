@@ -1,18 +1,9 @@
 
                 <!-- Topbar -->
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light bg-dark topbar mb-4 static-top shadow">
 
-<!-- <div class="container col-xl">
-    <font color="teal">
-        <h2>SISTEMA WEB DE VENTAS PARA UNA TIENDA COMERCIAL DE CERAMICA</h2>
-    </font>
-</div> -->
-<div class="container my-auto">
-    <div class="copyright text-center my-auto">
-        <font color="orange">
-            <span>SISTEMA WEB VENTAS PARA LA TIENDA COMERCIAL &copy; 2022</span>
-        </font>
-    </div>
+<div class="w-auto p-3" style="background-color: dark;" class="copyright text-center my-auto">
+        <h1>SISTEMA WEB VENTAS PARA LA TIENDA COMERCIAL &copy; 2022</h1>
 </div>
 
                     <!-- Sidebar Toggle (Topbar) -->

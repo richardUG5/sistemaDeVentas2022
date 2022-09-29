@@ -19,8 +19,8 @@
   </div>
 
   <div class="col-md-2">
-    <?php echo form_open_multipart('empleado/vender'); ?>
-      <button type="submit" name="agregar" class="btn btn-outline-info btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> VENDER</button>
+    <?php echo form_open_multipart('usuarios/vender'); ?>
+      <button type="submit" name="agregar" class="btn btn-outline-info btn-block"> <i class="fas fa-user"></i> <i class="fas fa-edit"></i> V E N D E R</button>
     <?php echo form_close(); ?>
   </div>
 
@@ -38,7 +38,7 @@
 
   <div class="col-md-2">
     <?php echo form_open_multipart('usuarios/logout'); ?>
-      <button type="submit" name="buton3" class="btn btn-outline-primary btn-block"> <i class="fas fa-user"></i> CERRAR SESSION</button>
+      <button type="submit" name="buton3" class="btn btn-outline-primary btn-block"> <i class="fas fa-user"></i> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> CERRAR SESSION</button>
     <?php echo form_close(); ?>
   </div>
 

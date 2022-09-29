@@ -10,12 +10,10 @@ class Cliente_model extends CI_Model {
 		$this->db->where('estado','1'); // estado=1
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
-
 	public function agregarcliente($data) 
 	{
 		$this->db->insert('cliente',$data);
 	}
-
 	public function eliminarcliente($idcliente)
 	{
 		$this->db->where('idCliente',$idcliente);
@@ -31,8 +29,7 @@ class Cliente_model extends CI_Model {
 	}
 
 	public function modificarcliente($idcliente, $data)
-	{
-		
+	{		
 		$this->db->where('idCliente',$idcliente); // hace WHERE idCliente=idcliente
 		// dnd (atributo de BdD [idCliente=idcliente] esto es variable q recibe)
 		$this->db->update('cliente',$data);		

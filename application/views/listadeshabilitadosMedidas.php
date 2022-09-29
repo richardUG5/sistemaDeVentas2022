@@ -24,10 +24,10 @@
       <thead>
         <tr bgcolor="#022424" align=center>
           <th scope="col">Nro</th>          
-          <th scope="col">Unidad Medida</th>          
+          <th scope="col">UNIDAD MEDIDA</th>          
           <th scope="col">FechaRegistro</th>
           <th scope="col">FechaActualizacion</th>          
-          <th scope="col">Habilitar</th>
+          <th scope="col">HABILITAR</th>
         </tr>
       </thead>
       <tbody>

@@ -24,10 +24,10 @@
       <thead>
         <tr bgcolor="#022424" align=center>
           <th scope="col">Nro</th>          
-          <th scope="col">Nombre Categoria</th>          
+          <th scope="col">NOMBRE CATEGORIA</th>          
           <th scope="col">FechaRegistro</th>
           <th scope="col">FechaActualizacion</th>          
-          <th scope="col">Habilitar</th>
+          <th scope="col">HABILITAR</th>
         </tr>
       </thead>
       <tbody>

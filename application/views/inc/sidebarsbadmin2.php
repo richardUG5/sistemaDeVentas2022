@@ -1,31 +1,22 @@
 <!-- Sidebar -->
 
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" >
+<a class="sidebar-brand d-flex align-items-center justify-content-center" >
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fa fa-cubes"></i>
+            <i class="fas fa-user-tie fa-fw"></i>&nbsp;ADMINISTRADOR
         </div>
-        <div class="sidebar-brand-text mx-3">Sistema Web Ventas</div>
-    </a>
-<section class="full-box nav-lateral">    
-    <div class="full-box nav-lateral-content scroll">
-        <figure class="full-box nav-lateral-avatar">
-            <i class="far fa-times-circle show-nav-lateral"></i> <br>
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            
-                <img class="img-profile rounded-circle" src="<?php echo base_url(); ?>sbadmin2/img/rug.jpg">
-                <br>
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Richard Ugarte García</span>
-            </a>
-            <figcaption class="roboto-medium text-center">
-            <?php echo "ADMINISTRADOR" ?><br><small class="roboto-condensed-light"><?php echo "ADMINISTRADOR"; ?></small>
-            </figcaption>
-        </figure>
-    </div>
-<section class="full-box nav-lateral">
+</a>
+
+<div class="sidebar-brand d-flex align-items-center justify-content-center">
+    <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+            <img src="<?php echo base_url(); ?>sbadmin2/img/rug.jpg" class="img-profile rounded-circle" alt="Responsive image" class="mx-auto d-block">
+        </a>
+    </li>
+</div>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -71,27 +62,28 @@
                   <ul class="nav child_menu">
                     <li>
                         <?php echo form_open_multipart('usuarios/index1');?>
-                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                          <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;"><i class="fas fa-user-tie fa-fw"></i>&nbsp; 
                             Usuarios
                           </button>
                         <?php echo form_close();?>
                     </li>
-                    <li>
-                        <?php echo form_open_multipart('empleado/index');?>
-                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                  <!--  <li>
+                        <?php //echo form_open_multipart('empleado/index');?>
+                          <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;"><i class="fas fa-user-tie fa-fw"></i>&nbsp;
                             Empleados
                           </button>
-                        <?php echo form_close();?>
-                    </li>
+                        <?php //echo form_close();?>
+                    </li> -->
                     <li>
                         <?php echo form_open_multipart('comercial/index');?>
-                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                          <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;"><i class="fas fa-store-alt fa-fw"></i> &nbsp;
                             Comercial
                           </button>
                         <?php echo form_close();?>
                     </li>
                   </ul>                
             </li>
+        <hr class="sidebar-divider my-0">
 <!-- fin empleados ------------------------------------------------------------------------->
 <!-- inicio para gestion de productos --------------------------------------------------------------->
 <li class="nav-item">
@@ -102,25 +94,27 @@
     <ul class="nav child_menu">
         <li>
             <?php echo form_open_multipart('producto/index');?>
-              <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;"> Productos
+              <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;"> <i class="fas fa-box fa-fw"></i> &nbsp;Productos
               </button>
             <?php echo form_close();?>
         </li>
         <li>
             <?php echo form_open_multipart('categoria/index');?>
-              <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;"> Categorías
+              <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;"> <i class="fas fa-tags fa-fw"></i> &nbsp;Categorías
               </button>
             <?php echo form_close();?> 
         </li>
         <li>
             <?php echo form_open_multipart('medida/index');?>
-              <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;"> Medida
+              <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;"> <i class="fas fa-hand-holding-usd fa-fw"></i>&nbsp;Medida
               </button>
             <?php echo form_close();?>
         </li>
   </ul>
 </li>
+<hr class="sidebar-divider my-0">
 <!-- fin productos ------------------------------------------------------------------------->
+
 <!-- ------------------------ para gestion de clientes ---------------------------------------- -->
             <li class="nav-item">                
                   <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo">
@@ -130,8 +124,38 @@
                   <ul class="nav child_menu">
                     <li>
                         <?php echo form_open_multipart('cliente/index');?>
-                          <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                          <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;" class="btn btn-outline-info btn-block"> <i class="fas fa-child fa-fw"></i> &nbsp;
                             Clientes
+                          </button>
+                        <?php echo form_close();?>
+                    </li>
+                  </ul>                
+            </li>
+<hr class="sidebar-divider my-0">
+<!-- fin clientes ------------------------------------------------------------------------->
+
+<!-- ------------------------ para gestion de ventas ---------------------------------------- -->
+            <li class="nav-item">                
+                  <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo">
+                    <i class="fa fa-users"></i>Gestion Ventas
+                    <span class="fa fa-chevron-down"></span>
+                  </a>
+
+                  <ul class="nav child_menu">
+                    <li>
+                        <?php echo form_open_multipart('venta/index');?>
+                          <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;" class="btn btn-outline-info btn-block"> <i class="fas fa-child fa-fw"></i> &nbsp;
+                            Ventas
+                          </button>
+                        <?php echo form_close();?>
+                    </li>
+                  </ul>
+
+                  <ul class="nav child_menu">
+                    <li>
+                        <?php echo form_open_multipart('detalleventa/index');?>
+                          <button type="submit" class="col-md-12 btn btn-outline-info" style="background-color: transparent; border: none;" class="btn btn-outline-info btn-block"> <i class="fas fa-child fa-fw"></i> &nbsp;
+                            Detalle Ventas
                           </button>
                         <?php echo form_close();?>
                     </li>

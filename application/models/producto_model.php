@@ -18,13 +18,13 @@ class producto_model extends CI_Model {
 	{
 		$this->db->insert('producto',$data);
 	}
-	
+// para eliminar usuario definitivamente---------------------------
 	public function eliminarproducto($idproducto)
 	{
 		$this->db->where('idProducto',$idproducto);
 		$this->db->delete('producto');
 	}
-
+// End -----------------------------------------------------------
 	public function recuperarproducto($idproducto)
 	{
 		$this->db->select('p.idProducto,p.descripcion,p.color,p.precioBase,p.idCategoria,p.idMedida,c.idCategoria

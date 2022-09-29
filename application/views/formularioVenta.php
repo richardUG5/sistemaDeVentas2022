@@ -5,9 +5,10 @@
         <div class="x_panel">
           <div class="x_content">
 
-  <?php echo form_open_multipart('usuarios/venderbd'); ?>
+      <?php echo form_open_multipart('venta/agregarbd'); ?>
+      <br>
 
-      <!-- inicio agrupado todo formulario -->
+<!-- inicio agrupado todo formulario -->
 
 <div class="item form-group has-feedback" style="background-color:#1D7070;" style="color:whitesmoke;" style="text-align:center" align="right">
     <font color="white"> <br>
@@ -38,8 +39,7 @@
         </div> 
     </div> <br>
 
-
-    <!------------ begin --------------->
+  <!------------ begin --------------->
     <div class="row">
         <div class="col-md-4">
           <label class="col-form-label label-align" for="CLIENTE">CLIENTE:</label>
@@ -48,15 +48,14 @@
       <div class="col-md-5">
         <select name="idCliente" class="form-control">
             <option>Seleccione un cliente</option>
-          <?php
-          foreach ($infoclientes->result() as $row)
-          {
-          ?>
-            <option value="<?php echo $row->idCliente; ?>"><?php echo $row->nit_ci; ?></option>
-          <?php
-          }
-          ?>
-         </select>
+            <?php 
+            foreach($cli->result() as $row)
+            {?>
+                <option value="<?php echo $row->idCliente;?>"><?php echo $row->nit_ci;?></option>
+            <?php
+            }
+            ?>
+        </select>
       </div> 
     </div><br>
 
@@ -67,25 +66,26 @@
 
       <div class="col-md-5">
         <select name="idUsuario" class="form-control">
-            <option>Seleccione usuario</option>   
-          <?php
-          foreach ($infousuarios->result() as $urow)
-          {
-          ?>
-            <option value="<?php echo $urow->idUsuario; ?>"><?php echo $urow->tipo; ?></option>
-          <?php
-          }
-          ?>
+            <option>Seleccione usuario</option>
+            <?php 
+            foreach($usu->result() as $urow)
+            {?>
+                <option value="<?php echo $urow->idUsuario;?>"><?php echo $urow->nombres;?></option>
+            <?php
+            }
+            ?>
         </select>
       </div> 
     </div><br> <!------------ fin --------------->
 
-  </font>
+    </font>
+
     <div class="col-md-12" align="center" style="background-color:#1D7070;">
-        <button type="submit" class="btn btn-outline-success"> <i class="fas fa-cube"></i> AGREGAR NUEVA VENTA</button>
-        <?php echo form_close(); ?>
+          <button type="submit" class="btn btn-outline-success"> <i class="fas fa-cube"></i> AGREGAR NUEVA VENTA</button>
+          <?php echo form_close(); ?>
     </div> <br>
-</div><!------------ fin --------------->
+
+</div> <!-- fin agrupado todo formulario -->    
 
           </div>
         </div>
