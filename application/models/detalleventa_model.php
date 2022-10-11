@@ -4,12 +4,11 @@ class detalleventa_model extends CI_Model {
 	
 	public function listadetalleventas()
 	{
-		$this->db->select('dv.idVenta,dv.cantidad,dv.precioUnitario
-			v.idVenta,p.idProducto'); // select *'); // select *
+		$this->db->select('dv.idVenta,dv.idProducto,dv.cantidad,dv.precioUnitario'); // select *');
 		$this->db->from('detalleventa dv'); // tabla
 		//$this->db->where('v.estado','1');
 		$this->db->join('venta v','dv.idVenta=v.idVenta');
-		$this->db->join('producto p','v.idUsuario=p.idProducto');
+		$this->db->join('producto p','dv.idProducto=p.idProducto');
 		return $this->db->get(); // devolucion del resultado de la consulta
 	}
 

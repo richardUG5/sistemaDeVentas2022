@@ -46,7 +46,7 @@
 
 <!-- <div class="card-box table-responsive"> para mismo tamaño las filas con linea --> 
   <div class="table-responsive">
-      <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered table-dark table-hover" id="dataTable" width="100%" cellspacing="0">
         <thead>        
           <tr bgcolor="#022424" align="center">
             <th scope="col">Nro</th>

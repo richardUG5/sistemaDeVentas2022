@@ -161,7 +161,28 @@
                     </li>
                   </ul>                
             </li>
-<!-- fin clientes ------------------------------------------------------------------------->
+<!-- fin ventas ------------------------------------------------------------------------->
+
+
+
+<div class="sidebar-heading">
+        GESTION DE INTERFACES
+</div>
+    <hr class="sidebar-divider my-2">
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Gestion Ventas</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="nueva_venta.php">Nueva venta</a>
+                <a class="collapse-item" href="http://localhost/sisWebComVentas/index.php/venta/index">Ventas</a>
+            </div>
+        </div>
+    </li>
+
 
 <!-- inicio para empleados ------------------------------------------------------------------------->
 <!-- ---<li class="nav-item">

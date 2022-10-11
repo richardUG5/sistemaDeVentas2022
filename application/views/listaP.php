@@ -13,7 +13,7 @@
 <div class="row" style="background-color:#022424;">
   <div class="col-md-2">
     <?php echo form_open_multipart('producto/agregar'); ?>
-        <button type="submit" class="btn btn-outline-warning btn-block"><i class="fas fa-cube"></i><i class="fas fa-edit"></i> AGREGAR PRODUCTO</button>
+        <button type="submit" class="btn btn-outline-warning btn-block"><i class="fas fa-cube"> </i> <i class="fas fa-edit"></i> AGREGAR PRODUCTO</button>
     <?php echo form_close(); ?>      
   </div>
 
@@ -27,7 +27,7 @@
 
   <div class="col-md-3">
     <?php echo form_open_multipart('producto/deshabilitados'); ?>
-      <button type="submit" name="buton2" class="btn btn-outline-danger btn-block"><i class="fas fa-cubes"></i><i class="far fa-trash-alt"></i> VER PRODUCTOS ELIMINADOS</button>
+      <button type="submit" name="buton2" class="btn btn-outline-danger btn-block"><i class="fas fa-cubes"></i> <i class="fas fa-boxes fa-fw"></i>&nbsp;VER PRODUCTOS ELIMINADOS</button>
     <?php echo form_close(); ?>        
   </div>
 
@@ -49,7 +49,7 @@
 
 <!-- <div class="card-box table-responsive"> para mismo tamaño las filas con linea --> 
   <div class="table-responsive">
-      <table class="table table-bordered table-dark" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered table-dark table-hover" id="dataTable" width="100%" cellspacing="0">
         <thead>        
           <tr bgcolor="#022424" align="center">
             <th scope="col">Nro</th>

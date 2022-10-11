@@ -45,6 +45,7 @@ class Venta extends CI_Controller {
 		$data['total']=$_POST['Total'];
 		$data['idCliente']=$_POST['idCliente'];
 		$data['idUsuario']=$_POST['idUsuario'];
+		//$data['idProducto']=$_POST['idProducto']; // aquiiiiiiiiiiiii
 
 		//$data['fechaRegistro']=$_POST['FechaRegistro'];
 		//$data['fechaActualizacion']=$_POST['FechaActualizacion'];
@@ -80,7 +81,7 @@ class Venta extends CI_Controller {
 	{
 		$idventa=$_POST['idventa'];
 		//-----BDD tabla-------formulario.php
-		$data['fechaVenta']=$_POST['Fecha'];
+		//$data['fechaVenta']=$_POST['Fecha'];
 		$data['total']=$_POST['Total'];
 		$data['idCliente']=$_POST['idCliente'];
 		$data['idUsuario']=$_POST['idUsuario'];

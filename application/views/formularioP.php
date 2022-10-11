@@ -15,7 +15,7 @@
 
         <div class="col-md-12" align="center">
             <font color="cyan">
-              <h1><i class="fas fa-cube"></i> AGREGAR NUEVO PRODUCDO</h1>
+              <h1><i class="fas fa-box fa-fw"></i>&nbsp;AGREGAR NUEVO PRODUCTO</h1>
             </font> 
         </div>
 

@@ -15,7 +15,7 @@
 
         <div class="col-md-12" align="center">
             <font color="cyan">
-              <h1><i class="fas fa-user"></i> AGREGAR NUEVO USUARIO</h1>
+              <h1><i class="fas fa-user-tie fa-fw"></i> &nbsp; AGREGAR NUEVO USUARIO</h1>
             </font> 
         </div>
 

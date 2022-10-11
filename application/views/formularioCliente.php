@@ -16,7 +16,7 @@
 
     <div class="col-md-12" align="center">
       <font color="cyan">
-        <h1><i class="fas fa-user"></i> AGREGAR NUEVO CLIENTE</h1>
+        <h1><i class="fas fa-child fa-fw"></i>&nbsp;<i class="fas fa-shipping-fast fa-fw"></i>&nbsp;AGREGAR NUEVO CLIENTE</h1>
       </font> 
     </div>
 
@@ -63,7 +63,7 @@
   </font>
 
   <div class="col-md-12" align="center" style="background-color:#1D7070;">
-    <button type="submit" class="btn btn-outline-success"> <i class="fas fa-user"></i> AGREGAR NUEVO CLIENTE</button>
+    <button type="submit" class="btn btn-outline-success"> <i class="fas fa-child fa-fw"></i> &nbsp;AGREGAR NUEVO CLIENTE</button>
     <?php echo form_close(); ?>
   </div> <br> <!-- izquierda = left derecha = right  --> 
 

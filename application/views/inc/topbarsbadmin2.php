@@ -1,10 +1,38 @@
-
-                <!-- Topbar -->
-<nav class="navbar navbar-expand navbar-light bg-dark topbar mb-4 static-top shadow">
-
+<!-- Topbar -->
+<!--
 <div class="w-auto p-3" style="background-color: dark;" class="copyright text-center my-auto">
-        <h1>SISTEMA WEB VENTAS PARA LA TIENDA COMERCIAL &copy; 2022</h1>
-</div>
+        <h1>SISTEMA WEB DE VENTA &copy; 2022</h1>
+</div> -->
+
+    <?php
+        date_default_timezone_set('America/La_Paz');
+
+        function fechaBolivia(){
+            $mes = array("","Enero",
+                          "Febrero",
+                          "Marzo",
+                          "Abril",
+                          "Mayo",
+                          "Junio",
+                          "Julio",
+                          "Agosto",
+                          "Septiembre",
+                          "Octubre",
+                          "Noviembre",
+                          "Diciembre");
+            return date('d')." de ". $mes[date('n')] . " de " . date('Y');
+        }
+     ?>
+
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+    <div id="content">
+        <nav class="navbar navbar-expand navbar-light bg-dark text-gray-500 topbar mb-4 static-top shadow">
+            <div class="input-group">
+                <h5>SISTEM@ WEB DE VENT@ </h5>
+                    <p class="ml-auto"><strong> Cbba, </strong><?php echo fechaBolivia(); ?></p>  
+            </div>
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -169,13 +197,13 @@
                             </div>
                         </li> ------------------------------ -->
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <div class="topbar-divider d-none d-sm-block"></div> <!--linea q dibuja -->
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Richard Ugarte García</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Richardug</span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url(); ?>sbadmin2/img/rug.jpg">
                             </a>
@@ -202,5 +230,7 @@
                             </div>
                         </li>
                     </ul>
-                </nav>
-                <!-- End of Topbar -->
+        </nav>
+    </div>
+</div>
+<!-- End of Topbar -->

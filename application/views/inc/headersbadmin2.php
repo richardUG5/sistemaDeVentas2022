@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistema Web Ventas</title>
+    <title>SisWebVentas</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url(); ?>sbadmin2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

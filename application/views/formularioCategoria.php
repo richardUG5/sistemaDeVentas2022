@@ -16,7 +16,7 @@
 
     <div class="col-md-12" align="center">
       <font color="cyan">
-        <h1><i class="fas fa-cube"></i> AGREGAR NUEVO CATEGORIA</h1>
+        <h1><i class="fas fa-tags fa-fw"></i> AGREGAR NUEV@ CATEGORIA</h1>
       </font> 
     </div>
 <!--
@@ -63,7 +63,7 @@
   </font>
 
   <div class="col-md-12" align="center" style="background-color:#1D7070;">
-    <button type="submit" class="btn btn-outline-success"> <i class="fas fa-cube"></i> AGREGAR NUEVA CATEGORIA</button>
+    <button type="submit" class="btn btn-outline-success"> <i class="fas fa-tags fa-fw"></i> AGREGAR NUEV@ CATEGORI@</button>
     <?php echo form_close(); ?>
   </div> <br> <!-- izquierda = left derecha = right  --> 
 

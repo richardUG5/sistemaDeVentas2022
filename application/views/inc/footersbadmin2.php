@@ -12,13 +12,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Listo para salir?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
 
-                <div class="modal-body">Elejir "Cerrar Sesion" esta seguro de cerrar session?.</div>
+                <div class="modal-body">Usted está seguro de cerrar sesion?, Elija "CERRAR SESION" </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                     <?php echo form_open_multipart('usuarios/logout'); ?>
@@ -97,7 +97,7 @@
 <footer class="sticky-footer bg-dark">
     <div class="container my-auto">
         <div class="copyright text-center my-auto" style="background-color: dark;">
-            <span>Realizado por: Richard Ugarte Garcia  &copy; SISTEMA WEB VENTAS 2022</span>
+            <span>Realizado por: Richard Ugarte Garci@  &copy; SISTEMA WEB VENT@S 2022</span>
         </div>
     </div>
 </footer> 
