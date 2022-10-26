@@ -105,7 +105,7 @@
 		<div id="collapseReportes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="reporte1.php">Nuevo Reporte</a>
-				<a class="collapse-item" href="lista_proveedor.php">Reportes</a>
+				<a class="collapse-item" href="index.php">Administracion</a>
 			</div>
 		</div>
 	</li>
