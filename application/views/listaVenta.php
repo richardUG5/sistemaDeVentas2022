@@ -35,7 +35,7 @@
 
   <!-- BOTON PARA REPORTE con  PDF -->      
     <a target="_blank" href="<?php echo base_url(); ?>index.php/venta/reportepdf">
-      <button class="btn btn-outline-info btn-block"> <i class="fas fa-cubes"></i></i> REPORTE VENTAS PDF</button>        
+      <button class="btn btn-outline-info btn-block"> <i class="fas fa-cubes"></i></i> REPORTE VENTAS EN PDF</button>        
     </a>
 <!-- HASTA AQUI REPORTE EN PDF -->
 
