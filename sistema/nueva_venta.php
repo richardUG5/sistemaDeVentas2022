@@ -8,7 +8,7 @@
                             <div class="form-group">
                                 <a href="#" class="btn btn-outline-info btn_new_cliente"><i class="fas fa-user-plus"></i> NUEVO CLIENTE</a>
                                 <a href="ventas.php" class="btn btn-outline-info"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;CANCELAR</a>
-                                <font color="orange"><h4 class="text-center">DATOS DEL CLIENTE</h4></font>
+                                <font color="orange"><h4 class="text-center">DATOS/INFORMACION DEL CLIENTE</h4></font>
                             </div>
                             <div class="card">
                                 <div class="card-body" style="background-color:#008080;">
@@ -51,7 +51,7 @@
                             <div class="row" style="color:white;">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label><i class="fas fa-user"></i> VENDEDOR</label>
+                                        <label><i class="fas fa-user"></i> USUARIO VENDEDOR</label>
                                         <p style="font-size: 16px; text-transform: uppercase; color: cyan;"><?php echo $_SESSION['nombre']; ?></p>
                                     </div>
                                 </div>

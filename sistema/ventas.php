@@ -5,7 +5,7 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-cubes"></i> GESTION DE VENTAS</h1>
+		<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-cubes"></i> GESTION/ADMINISTRACION DE VENTAS</h1>
 		<a href="nueva_venta.php" class="btn btn-info"> <i class="fas fa-user-plus"></i>&nbsp;NUEVA VENTA</a>
 	</div>
 	<div class="row">
