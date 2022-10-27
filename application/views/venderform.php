@@ -14,7 +14,7 @@
 
         <div class="col-md-12" align="center">
             <font color="cyan">
-              <h1><i class="fas fa-cube"></i> NUEVA VENTA</h1>
+              <h1><i class="fas fa-cube"></i> NUEVA VENTA DE PRODUCTOS</h1>
             </font> 
         </div>
 
